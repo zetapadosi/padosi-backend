@@ -1,15 +1,17 @@
 import config from './config/config';
 import app from './server/express';
-// import dbController from './controllers/dbContorllers';
+import dbController from './server/controllers/dbController';
+
+const { port } = config;
 
 (async () => {
  console.info(`Starting App ......`);
- // await dbController();
- await app.listen(config.port, () => {
+ await dbController();
+ await app.listen(port, () => {
   try {
-   console.info(`Server is running on the ${config.port}`);
+   console.info(`Express -> Server is running on the ${port}`);
   } catch (e) {
-   console.error(e.message);
+   console.error('Express -> ', e.message);
   }
  });
  console.info(`App Started .......`);
