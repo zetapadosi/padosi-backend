@@ -1,8 +1,8 @@
 const config = {
  env: process.env.NODE_ENV || 'development',
- port: process.env.PORT || 8282,
+ port: process.env.PORT || '',
  jwtSecret: process.env.JWT_SECRET || '',
- mongoUri: process.env.MONGO_URI || ''
+ mongoUri: process.env.MONGO_URL || '',
 };
 
 export default config;

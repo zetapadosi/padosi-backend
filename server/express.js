@@ -4,13 +4,18 @@ import cookieParser from 'cookie-parser';
 import helmet from 'helmet';
 import cors from 'cors';
 import morgan from 'morgan';
+import serveFavicon from 'serve-favicon';
+
+
 import Template from '../template';
+
 
 const app = express();
 
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(serveFavicon('./source/nodejs.svg'))
 app.use(morgan('combined'));
 app.use(cookieParser());
 app.use(compression());
