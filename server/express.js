@@ -6,22 +6,21 @@ import cors from 'cors';
 import morgan from 'morgan';
 import serveFavicon from 'serve-favicon';
 
-
 import Template from '../template';
-
+import { errHandler, headerFunction, notFound } from './middleware/errorMiddleware';
 
 const app = express();
 
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(serveFavicon('./source/nodejs.svg'))
+app.use(serveFavicon('./source/nodejs.svg'));
 app.use(morgan('combined'));
 app.use(cookieParser());
 app.use(compression());
 app.use(helmet());
 app.use(cors());
-
+app.all('*', headerFunction);
 // Test Route
 app.get('/ping', async (req, res, next) => {
  try {
@@ -37,5 +36,8 @@ app.get('/', async (req, res, next) => {
   console.log(e.message);
  }
 });
+
+app.use(errHandler);
+app.use(notFound);
 
 export default app;
