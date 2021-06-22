@@ -8,6 +8,7 @@ import serveFavicon from 'serve-favicon';
 
 import Template from '../template';
 import { errHandler, headerFunction, notFound } from './middleware/errorMiddleware';
+import apiRoutes from './routes/apiRoutes';
 
 const app = express();
 
@@ -36,6 +37,7 @@ app.get('/', async (req, res, next) => {
   console.log(e.message);
  }
 });
+app.use('/api', apiRoutes);
 
 app.use(errHandler);
 app.use(notFound);
