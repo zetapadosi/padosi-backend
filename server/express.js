@@ -9,16 +9,18 @@ import passport from 'passport';
 import cookieSession from 'cookie-session';
 
 import Template from '../template';
-import config from '../config/config'
+import config from '../config/config';
 import { errHandler, headerFunction, notFound } from './middleware/errorMiddleware';
 import apiRoutes from './routes/apiRoutes';
 import './helper/passportHelper';
 
-const {sessionSecret}= config
+const { sessionSecret } = config;
 
 const app = express();
 
 // Middleware
+// app.set('view engine', 'ejs');
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(serveFavicon('./source/nodejs.svg'));
@@ -27,12 +29,15 @@ app.use(cookieParser());
 app.use(compression());
 app.use(helmet());
 app.use(cors());
-app.use(passport.initialize())
-app.use(passport.session())
-app.use(cookieSession({
- maxAge: 30 * 24 * 60 * 60 * 1000,
-    keys: [sessionSecret]
-}))
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(
+ cookieSession({
+  maxAge: 30 * 24 * 60 * 60 * 1000,
+  keys: [sessionSecret],
+ })
+);
+
 app.all('*', headerFunction);
 // Test Route
 app.get('/ping', async (req, res, next) => {
@@ -44,7 +49,8 @@ app.get('/ping', async (req, res, next) => {
 });
 app.get('/', async (req, res, next) => {
  try {
-  return res.status(200).send(Template());
+  return res.status(200).json({ msg: 'Success', body: 'Server is working ' });
+  //   return res.render('pages/index');
  } catch (e) {
   console.log(e.message);
  }
