@@ -5,10 +5,16 @@ import helmet from 'helmet';
 import cors from 'cors';
 import morgan from 'morgan';
 import serveFavicon from 'serve-favicon';
+import passport from 'passport';
+import cookieSession from 'cookie-session';
 
 import Template from '../template';
+import config from '../config/config'
 import { errHandler, headerFunction, notFound } from './middleware/errorMiddleware';
 import apiRoutes from './routes/apiRoutes';
+import './helper/passportHelper';
+
+const {sessionSecret}= config
 
 const app = express();
 
@@ -21,6 +27,12 @@ app.use(cookieParser());
 app.use(compression());
 app.use(helmet());
 app.use(cors());
+app.use(passport.initialize())
+app.use(passport.session())
+app.use(cookieSession({
+ maxAge: 30 * 24 * 60 * 60 * 1000,
+    keys: [sessionSecret]
+}))
 app.all('*', headerFunction);
 // Test Route
 app.get('/ping', async (req, res, next) => {
