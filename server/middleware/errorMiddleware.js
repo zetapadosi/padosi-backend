@@ -1,18 +1,19 @@
 export const notFound = (req, res, next) => {
- const error = new Error(`Not Found -${req.originalUrl}`);
  res.status(404);
+ const error = new Error(` 🔍 Not Found -${req.originalUrl}`);
  next(error);
 };
 
 export const errHandler = (err, req, res, next) => {
- const statusCode = req.statusCode === 200 ? 500 : res.statusCode;
+ const statusCode = req.statusCode !== 200 ? res.statusCode : 500;
  res.status(statusCode);
  res.json({
   data: {
    msg: err.message,
-   stock: process.env.NODE_ENV === 'production' ? ' 🌵 🌵 ' : err.stock,
+   stack: process.env.NODE_ENV === 'production' ? ' 🌵 🌵 ' : err.stack,
   },
  });
+ next();
 };
 
 export const headerFunction = (req, res, next) => {
