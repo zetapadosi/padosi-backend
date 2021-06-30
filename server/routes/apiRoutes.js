@@ -5,6 +5,7 @@ import userRouter from './userRoute';
 
 const apiRoutes = new Router();
 
+/*  */
 apiRoutes.use('/auth', authRoute);
 apiRoutes.use('/post', postRouter);
 apiRoutes.use('/user', userRouter)
