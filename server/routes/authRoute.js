@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { loginAuth, testAuth } from '../controllers/authController';
+import {  sigin, testAuth } from '../controllers/authController';
 
 const authRoute = new Router();
 
@@ -14,7 +14,6 @@ authRoute.get('/test', testAuth);
 /*
  userlogin route
  */
-
-authRoute.post('/login',loginAuth)
+authRoute.post('/login',sigin)
 
 export default authRoute;
