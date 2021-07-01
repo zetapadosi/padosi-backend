@@ -20,7 +20,7 @@ const { sessionSecret, availableLocals, defaultLanguage, projectRoot } = config;
 const app = express();
 
 // Import Model
-import './model/indexModel';
+require('./model')
 
 i18n.configure({locales: availableLocals ,directory: path.join(projectRoot, 'server','locals'), defaultLocale: defaultLanguage})
 

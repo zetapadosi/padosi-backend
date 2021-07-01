@@ -1,0 +1,3 @@
+
+require('./postModel')
+require('./userModel')

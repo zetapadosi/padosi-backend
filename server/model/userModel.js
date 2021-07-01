@@ -13,7 +13,7 @@ const userSchema = new Schema(
   picture: { type: String },
   userFrom: { type: String, enum: Object.values(FROM_USER), default: FROM_USER.DEFAULT },
   location: {
-   type: { type: String, enum: 'Point' },
+   type: { type: String,  default: 'Point' },
    coordinates: { type: [Number] },
   },
   following: [{ type: Schema.ObjectId, ref: 'User' }],
