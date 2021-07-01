@@ -38,7 +38,6 @@ export const registerUser = async (req,res,next) => {
  }
 }
 
-
 export const sigin = async (req,res,next) => {
  try {
   const {email,userFrom} = req.body
@@ -55,5 +54,28 @@ export const sigin = async (req,res,next) => {
  } catch (e) {
   console.error(e.message);
   next(e)
+ }
+}
+
+export const signout = async (req,res,next) => {
+ try {
+  res.clearCookie('t')
+  return res.ok('SIGNED_OUT_SUCCESS')
+ } catch (e) {
+  console.error(e.message);
+  next(e)
+ }
+}
+
+export const requireSignin =  expressJwt({
+ secret: jwtSecret,
+ userProperty: 'auth',
+ algorithms: ['RS256']
+})
+
+export const hasAuthorization = (req,res,next) => {
+ const authorized = req.profile && req.auth && req.profile._id == req.auth._id
+ if (!authorized) {
+  return res.status(403).error('USER_IS_NOT_AUTHORIZED')
  }
 }
