@@ -70,7 +70,7 @@ export const signout = async (req,res,next) => {
 export const requireSignin =  expressJwt({
  secret: jwtSecret,
  userProperty: 'auth',
- algorithms: ['RS256']
+ algorithms: ['HS256']
 })
 
 export const hasAuthorization = (req,res,next) => {
@@ -78,4 +78,5 @@ export const hasAuthorization = (req,res,next) => {
  if (!authorized) {
   return res.status(403).error('USER_IS_NOT_AUTHORIZED')
  }
+ next()
 }
