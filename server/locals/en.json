@@ -4,5 +4,7 @@
 	"SIGNED_SUCCESS": "Signed Success",
 	"USER_ALREADY_REGISTERED": "User is already registered",
 	"UNAVAILABLE": "Unavailable",
-	"ACCESS_DENIED": "Access Denied"
+	"ACCESS_DENIED": "Access Denied",
+	"SIGNED_OUT_SUCCESS": "Signed Out Success",
+	"USER_IS_NOT_AUTHORIZED":"User is not authorized"
 }

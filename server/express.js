@@ -11,7 +11,7 @@ import path from 'path'
 
 import Template from '../template';
 import config from '../config/config';
-import { errHandler, headerFunction, notFound } from './middleware/errorMiddleware';
+import { errHandler, headerFunction, notFound, unauthorisedErrors } from './middleware/errorMiddleware';
 import apiRoutes from './routes/apiRoutes';
 import { extendedRequestMiddleware } from './middleware/extendedRequestMiddleware';
 
@@ -60,5 +60,6 @@ app.use('/api', apiRoutes);
 
 app.use(errHandler);
 app.use(notFound);
+app.use(unauthorisedErrors)
 
 export default app;
