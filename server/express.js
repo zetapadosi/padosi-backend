@@ -5,7 +5,6 @@ import helmet from 'helmet';
 import cors from 'cors';
 import morgan from 'morgan';
 import serveFavicon from 'serve-favicon';
-import cookieSession from 'cookie-session';
 import i18n from 'i18n'
 import path from 'path'
 
@@ -15,7 +14,7 @@ import { errHandler, headerFunction, notFound, unauthorisedErrors } from './midd
 import apiRoutes from './routes/apiRoutes';
 import { extendedRequestMiddleware } from './middleware/extendedRequestMiddleware';
 
-const { sessionSecret, availableLocals, defaultLanguage, projectRoot } = config;
+const {  availableLocals, defaultLanguage, projectRoot } = config;
 
 const app = express();
 
@@ -35,12 +34,12 @@ app.use(cookieParser());
 app.use(compression());
 app.use(helmet());
 app.use(cors());
-app.use(
- cookieSession({
-  maxAge: 24 * 60 * 60 * 1000,
-  keys: [sessionSecret],
- })
-);
+// app.use(
+//  cookieSession({
+//   maxAge: 24 * 60 * 60 * 1000,
+//   keys: [sessionSecret],
+//  })
+// );
 
 app.use(extendedRequestMiddleware);
 
@@ -58,8 +57,8 @@ app.get('/ping', async (req, res, next) => {
 // Load Routes
 app.use('/api', apiRoutes);
 
+app.use(unauthorisedErrors)
 app.use(errHandler);
 app.use(notFound);
-app.use(unauthorisedErrors)
 
 export default app;
