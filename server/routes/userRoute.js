@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { isLoggedIn } from '../helper/isLoggedInHelper';
+// import { isLoggedIn } from '../helper/isLoggedInHelper';
 
 const userRouter = new Router();
 
