@@ -5,7 +5,8 @@ const postSchema = new Schema(
 	{
 		_id: { type: String, default: () => `padosiPost-${Date.now()}${generateRandomSring(12)}` },
 		postedBy: { type: Schema.ObjectId, ref: 'User' },
-		text: { type: String },
+		tages: [{ type: String }],
+		postText: { type: String },
 		likes: [{ type: Schema.ObjectId, ref: 'User' }],
 		comments: [
 			{
