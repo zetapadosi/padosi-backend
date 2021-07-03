@@ -9,7 +9,7 @@ const FROM_USER = {
 
 const userSchema = new Schema(
 	{
-		_id: { type: String, default: () => `padosiUser-${Date.now()}${generateRandomSring(12)}` },
+		userId: { type: String, default: () => `padosiUser-${Date.now()}${generateRandomSring(12)}` },
 		userName: { type: String },
 		email: { type: String },
 		picture: { type: String },

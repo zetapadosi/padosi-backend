@@ -3,7 +3,7 @@ import { generateRandomSring } from '../helper/encriptionHelper';
 
 const postSchema = new Schema(
 	{
-		_id: { type: String, default: () => `padosiPost-${Date.now()}${generateRandomSring(12)}` },
+		postId: { type: String, default: () => `padosiPost-${Date.now()}${generateRandomSring(12)}` },
 		postedBy: { type: Schema.ObjectId, ref: 'User' },
 		tages: [{ type: String }],
 		postText: { type: String },

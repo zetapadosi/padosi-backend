@@ -30,7 +30,18 @@ export const createPost = async (req, res, next) => {
 		const { tages, postText } = req.body;
 		const newPost = new Post({ tages: tages, postText: postText, postedBy: profile });
 		await newPost.save();
-		return res.ok({ message: 'SUCCESS', value: newPost });
+		const viewPost = await Post.find({ _id: newPost._id }).populate('postedBy', '_id userId picture userName');
+		return res.ok({ message: 'SUCCESS', value: viewPost });
+	} catch (e) {
+		console.error(e.message);
+		next(e);
+	}
+};
+
+export const listByUser = async (req, res, next) => {
+	try {
+		const { _id } = req.profile;
+		const posts = await Post.find({ postedBy: _id });
 	} catch (e) {
 		console.error(e.message);
 		next(e);

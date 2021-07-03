@@ -5,7 +5,7 @@ export const inputPostRules = () => [
 	body('postText', 'Text is required to determine your idea').not().isEmpty(),
 	body('tages', 'Tages should not be empty').isArray({ min: 1 }),
 	body('tages.*', 'Tages langth should be in rage of 4 to  100 character').isLength({ min: 4, max: 100 }),
-	body('postText', 'Text langth should be in rage of 30 to  1000 character').isLength({ min: 30, max: 1000 }),
+	body('postText', 'Text langth should be in rage of 30 to  2650 character').isLength({ min: 30, max: 2650 }),
 ];
 
 export const validate = (req, res, next) => {
