@@ -104,3 +104,5 @@ npm run dev
 ### 🥇 The Endpoints and the output of the endpoints
 
 - #### [Register and Signup](lib/registerSignup.md)
+
+- #### [Creat Add a Post](lib/addPost.md)

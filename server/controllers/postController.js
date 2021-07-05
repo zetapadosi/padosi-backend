@@ -1,4 +1,6 @@
 import Post from '../model/postModel';
+import User from '../model/userModel';
+import config from '../../config/config';
 
 export const testPost = (req, res, next) => {
 	try {
@@ -27,8 +29,8 @@ export const postByID = async (req, res, next, postId) => {
 export const createPost = async (req, res, next) => {
 	try {
 		const { profile } = req;
-		const { tages, postText } = req.body;
-		const newPost = new Post({ tages: tages, postText: postText, postedBy: profile });
+		const { tags, postText } = req.body;
+		const newPost = new Post({ tags: tags, postText: postText, postedBy: profile });
 		await newPost.save();
 		const viewPost = await Post.find({ _id: newPost._id }).populate('postedBy', '_id userId picture userName');
 		return res.ok({ message: 'SUCCESS', value: viewPost });
@@ -40,8 +42,18 @@ export const createPost = async (req, res, next) => {
 
 export const listByUser = async (req, res, next) => {
 	try {
-		const { _id } = req.profile;
-		const posts = await Post.find({ postedBy: _id });
+		const { coordinates } = req.profile.location;
+
+		const options = {
+			longitude: parseFloat(coordinates[0]),
+			latitude: parseFloat(coordinates[1]),
+			distance: parseFloat(config.dist),
+			limit: parseFloat(config.limit),
+			page: parseFloat(config.page),
+		};
+		const getPosts = await User.getPostOfUsers(options);
+
+		return res.ok({ message: 'SUCCESS', value: getPosts });
 	} catch (e) {
 		console.error(e.message);
 		next(e);

@@ -18,11 +18,9 @@ const { availableLocals, defaultLanguage, projectRoot } = config;
 
 const app = express();
 
-// Import Model
-require('./model');
-
 i18n.configure({ locales: availableLocals, directory: path.join(projectRoot, 'server', 'locals'), defaultLocale: defaultLanguage });
 
+import './model';
 // Middleware
 app.set('view engine', 'ejs');
 app.use(i18n.init);

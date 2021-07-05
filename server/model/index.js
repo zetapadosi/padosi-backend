@@ -1,3 +1,2 @@
-
-require('./postModel')
-require('./userModel')
+import './postModel';
+import './userModel';
