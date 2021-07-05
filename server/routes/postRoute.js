@@ -11,7 +11,7 @@ import {
 	unlikePost,
 } from '../controllers/postController';
 import { userByID } from '../controllers/userContoller';
-import { inputPostRules, validate } from '../helper/inputValidationHelper';
+import { inputCommentRules, inputPostRules, validate } from '../helper/inputValidationHelper';
 
 const postRouter = new Router();
 
@@ -28,7 +28,7 @@ postRouter.put('/like', requireSignin, likePost);
 postRouter.put('/unlike', requireSignin, unlikePost);
 
 // Comment and un comment
-postRouter.put('/comment', requireSignin, commentPost);
+postRouter.put('/comment', requireSignin, inputCommentRules(), validate, commentPost);
 postRouter.put('/uncomment', requireSignin, uncommentPost);
 
 // Params route

@@ -10,5 +10,6 @@
 	"USER_NOT_FOUND": "User not found",
 	"POST_NOT_FOUND": "Post not found",
 	"ALREADY_LIKED_BY_USER": "Already liked by user",
-	"ALREADY_UNLIKED_BY_USER":"Already unliked by user"
+	"ALREADY_UNLIKED_BY_USER": "Already unliked by user",
+	"USER_COMMENTED_ONCE": "User Commented once"
 }

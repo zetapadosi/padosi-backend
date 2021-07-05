@@ -95,7 +95,7 @@ npm run dev
     - [ ] Add the input validation to the inputs as comment length.
     - [ ] Unit testing of comments
 
-  - [ ] Create the post method for the like and dislike the post and comments as well
+  - [x] Create the post method for the like and unlike the post and comments as well
     - [ ] Unit testing of the like and dislike
 
 

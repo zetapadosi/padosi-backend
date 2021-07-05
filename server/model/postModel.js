@@ -10,7 +10,7 @@ const postSchema = new Schema(
 		likes: [{ type: Schema.ObjectId, ref: 'User' }],
 		comments: [
 			{
-				text: String,
+				commentText: String,
 				created: { type: Date, default: Date.now },
 				postedBy: { type: Schema.ObjectId, ref: 'User' },
 			},

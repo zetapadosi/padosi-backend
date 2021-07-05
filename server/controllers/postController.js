@@ -68,7 +68,7 @@ export const likePost = async (req, res, next) => {
 		const { userId, postId } = req.body;
 		const isLiked = await Post.findOne({ likes: userId });
 		if (isLiked) {
-			return res.ok('ALREADY_LIKED_BY_USER');
+			return res.ok({ message: 'ALREADY_LIKED_BY_USER', value: isLiked });
 		}
 		const addlike = await Post.findOneAndUpdate({ postId: `${postId}` }, { $push: { likes: userId } }, { new: true });
 		return res.ok({ message: 'SUCCESS', value: addlike });
@@ -84,7 +84,7 @@ export const unlikePost = async (req, res, next) => {
 		const isUnlike = await Post.findOne({ likes: userId });
 		console.log(isUnlike);
 		if (isUnlike === null) {
-			return res.ok('ALREADY_UNLIKED_BY_USER');
+			return res.ok({ message: 'ALREADY_UNLIKED_BY_USER', value: isUnlike });
 		}
 		const unlike = await Post.findOneAndUpdate({ postId: `${postId}` }, { $pull: { likes: userId } }, { new: true });
 		return res.ok({ message: 'SUCCESS', value: unlike });
@@ -96,6 +96,21 @@ export const unlikePost = async (req, res, next) => {
 
 export const commentPost = async (req, res, next) => {
 	try {
+		const { commentText, postId, userId } = req.body;
+		const comment = {
+			commentText: commentText,
+			postedBy: userId,
+		};
+		const isCommented = await Post.findOne({ 'comments.postedBy': userId });
+		if (isCommented) {
+			return res.ok({ message: 'USER_COMMENTED_ONCE', value: isCommented });
+		}
+		console.log(isCommented);
+		const updatedPost = await Post.findOneAndUpdate({ postId: postId }, { $push: { comments: comment } }, { new: true })
+			.populate('comments.postedBy', '_id name userId picture')
+			.populate('postedBy', '_id name')
+			.exec();
+		return res.ok({ message: 'SUCCESS', value: updatedPost });
 	} catch (e) {
 		console.error(e.message);
 		next(e);
@@ -104,6 +119,17 @@ export const commentPost = async (req, res, next) => {
 
 export const uncommentPost = async (req, res, next) => {
 	try {
+		const { commentId, postId } = req.body;
+
+		const isRemoved = await Post.findOne({ 'comments._id': commentId });
+		if (isRemoved === null) {
+			return res.ok({ message: 'USER_COMMENTED_ONCE', value: isRemoved });
+		}
+		const updatedComment = await Post.findOneAndUpdate({ postId: postId }, { $pull: { comments: { _id: commentId } } }, { new: true })
+			.populate('comments.postedBy', '_id name userId picture')
+			.populate('postedBy', '_id name')
+			.exec();
+		return res.ok({ message: 'SUCCESS', value: updatedComment });
 	} catch (e) {
 		console.error(e.message);
 		next(e);
