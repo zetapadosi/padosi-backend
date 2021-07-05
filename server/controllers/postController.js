@@ -14,12 +14,22 @@ export const testPost = (req, res, next) => {
 
 export const postByID = async (req, res, next, postId) => {
 	try {
-		let post = await Post.findById(postId).populate('postedBy', '_id userName').exec();
+		let post = await Post.findOne({ postId: postId }).populate('postedBy', '_id name').exec();
 		if (!post) {
 			return res.error('POST_NOT_FOUND');
 		}
 		req.post = post;
 		next();
+	} catch (e) {
+		console.error(e.message);
+		next(e);
+	}
+};
+
+export const getSinglePost = async (req, res, next) => {
+	try {
+		const post = await Post.findById(req.post._id).populate('postedBy', 'name _id userId picture').exec();
+		return res.ok({ message: 'SUCCESS', value: post });
 	} catch (e) {
 		console.error(e.message);
 		next(e);

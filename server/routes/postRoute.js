@@ -3,6 +3,7 @@ import { requireSignin } from '../controllers/authController';
 import {
 	commentPost,
 	createPost,
+	getSinglePost,
 	likePost,
 	listByUser,
 	postByID,
@@ -17,6 +18,9 @@ const postRouter = new Router();
 
 // Test Route
 postRouter.get('/', requireSignin, testPost);
+
+// Get individual post
+postRouter.get('/view/:postId', requireSignin, getSinglePost);
 
 // create new post
 postRouter.post('/create/:userId', requireSignin, inputPostRules(), validate, createPost);
