@@ -73,17 +73,34 @@ npm run dev
 
 ---
 
-### 🏁 Day 1️⃣ Work
+## Work updates
 
-✔️ Set up the backend as per the requirement and with all the set up of dependencies.
-✔️ The Login setup with input fields with google and facebook
+- ### 🏁 Day 1️⃣ Work
 
-### Day 2 Work
+  - [x]  Set up the backend as per the requirement and with all the set up of dependencies.
 
-✔️ Create New post by the user with all the required fields
+  - [x] The Login setup with input fields with google and facebook
+
+- ### 🏁 Day 2️⃣ Work
+
+  - [x]  Create New post by the user with all the required fields
+    - [x] Add the input validation to the inputs as for post and tags that are created
+    - [ ] Unit testing of the post route.
+
+  - [ ] Create the get method for getting the details of the post for the login user wall.
+    - [ ] Get the data of the post from the desired radious of 5 Km area.
+    - [ ] Unit testing of getting the post data.
+
+  - [ ] Create the post method for the comment on the post with multiple users
+    - [ ] Add the input validation to the inputs as comment length.
+    - [ ] Unit testing of comments
+
+  - [ ] Create the post method for the like and dislike the post and comments as well
+    - [ ] Unit testing of the like and dislike
+
 
 ---
 
 ### 🥇 The Endpoints and the output of the endpoints
 
-- [Register and Signup](lib/registerSignup.md)
+- #### [Register and Signup](lib/registerSignup.md)
