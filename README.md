@@ -86,4 +86,4 @@ npm run dev
 
 ### 🥇 The Endpoints and the output of the endpoints
 
-- [Register and Login](lib/endPoint.md)
+- [Register and Signup](lib/registerSignup.md)
