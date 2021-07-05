@@ -3,6 +3,7 @@ import expressJwt from 'express-jwt';
 
 import User from '../model/userModel';
 import config from '../../config/config';
+
 const { jwtSecret } = config;
 
 export const testAuth = async (req, res, next) => {
