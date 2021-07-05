@@ -87,8 +87,8 @@ npm run dev
     - [x] Add the input validation to the inputs as for post and tags that are created
     - [ ] Unit testing of the post route.
 
-  - [ ] Create the get method for getting the details of the post for the login user wall.
-    - [ ] Get the data of the post from the desired radious of 5 Km area.
+  - [x] Create the get method for getting the details of the post for the login user wall.
+    - [x] Get the data of the post from the desired radious of 5 Km area.
     - [ ] Unit testing of getting the post data.
 
   - [ ] Create the post method for the comment on the post with multiple users

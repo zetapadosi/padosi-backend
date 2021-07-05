@@ -6,7 +6,9 @@
 	"UNAVAILABLE": "Unavailable",
 	"ACCESS_DENIED": "Access Denied",
 	"SIGNED_OUT_SUCCESS": "Signed Out Success",
-	"USER_IS_NOT_AUTHORIZED":"User is not authorized",
-	"USER_NOT_FOUND":"User not found",
-	"POST_NOT_FOUND":"Post not found"
+	"USER_IS_NOT_AUTHORIZED": "User is not authorized",
+	"USER_NOT_FOUND": "User not found",
+	"POST_NOT_FOUND": "Post not found",
+	"ALREADY_LIKED_BY_USER": "Already liked by user",
+	"ALREADY_UNLIKED_BY_USER":"Already unliked by user"
 }

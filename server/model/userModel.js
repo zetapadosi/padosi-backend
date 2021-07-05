@@ -60,7 +60,11 @@ class User {
 						picture: '$userData.picture',
 						userId: '$userData.userId',
 					},
+					createdAt: '$posts.createdAt',
 				},
+			},
+			{
+				$sort: { createdAt: 1 },
 			},
 			{
 				$skip: options.page || 0 > 0 ? (options.page || 0 - 1) * options.limit || 0 : 0,

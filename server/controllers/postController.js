@@ -42,8 +42,11 @@ export const createPost = async (req, res, next) => {
 
 export const listByUser = async (req, res, next) => {
 	try {
+		console.log('reqprofile', req.profile);
+		if (req.profile === undefined) {
+			return res.error('USER_IS_NOT_AUTHORIZED');
+		}
 		const { coordinates } = req.profile.location;
-
 		const options = {
 			longitude: parseFloat(coordinates[0]),
 			latitude: parseFloat(coordinates[1]),
@@ -54,6 +57,53 @@ export const listByUser = async (req, res, next) => {
 		const getPosts = await User.getPostOfUsers(options);
 
 		return res.ok({ message: 'SUCCESS', value: getPosts });
+	} catch (e) {
+		console.error(e.message);
+		next(e);
+	}
+};
+
+export const likePost = async (req, res, next) => {
+	try {
+		const { userId, postId } = req.body;
+		const isLiked = await Post.findOne({ likes: userId });
+		if (isLiked) {
+			return res.ok('ALREADY_LIKED_BY_USER');
+		}
+		const addlike = await Post.findOneAndUpdate({ postId: `${postId}` }, { $push: { likes: userId } }, { new: true });
+		return res.ok({ message: 'SUCCESS', value: addlike });
+	} catch (e) {
+		console.error(e.message);
+		next(e);
+	}
+};
+
+export const unlikePost = async (req, res, next) => {
+	try {
+		const { userId, postId } = req.body;
+		const isUnlike = await Post.findOne({ likes: userId });
+		console.log(isUnlike);
+		if (isUnlike === null) {
+			return res.ok('ALREADY_UNLIKED_BY_USER');
+		}
+		const unlike = await Post.findOneAndUpdate({ postId: `${postId}` }, { $pull: { likes: userId } }, { new: true });
+		return res.ok({ message: 'SUCCESS', value: unlike });
+	} catch (e) {
+		console.error(e.message);
+		next(e);
+	}
+};
+
+export const commentPost = async (req, res, next) => {
+	try {
+	} catch (e) {
+		console.error(e.message);
+		next(e);
+	}
+};
+
+export const uncommentPost = async (req, res, next) => {
+	try {
 	} catch (e) {
 		console.error(e.message);
 		next(e);
