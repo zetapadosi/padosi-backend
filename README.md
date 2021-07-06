@@ -98,8 +98,18 @@ npm run dev
   - [x] Create the post method for the like and unlike the post and comments as well
     - [ ] Unit testing of the like and dislike
 
-  - [ ] Add the user profile page to get the user data with his/her posts
+  - [x] Add the user profile page to get the user data with his/her posts
     - [ ] Unit testing of the page
+
+- ### 🏁 Day 3️⃣ Work
+
+  - [ ] Add search by Tags route and get the posts
+    - [ ] Get all the tags value and search the tags
+    - [ ] Unit tesing for the test Route
+
+  - [x] Add the follower and following routes to get the follower and following
+    - [ ] Unit testing for the Follower and following
+
 
 ---
 
