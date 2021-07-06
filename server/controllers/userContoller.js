@@ -1,5 +1,6 @@
 import User from '../model/userModel';
 
+
 export const userByID = async (req, res, next, id) => {
 	try {
 		let user = await User.find({ userId: `${id}` });

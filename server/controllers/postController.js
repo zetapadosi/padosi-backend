@@ -1,6 +1,8 @@
+
 import Post from '../model/postModel';
 import User from '../model/userModel';
 import config from '../../config/config';
+
 
 export const testPost = (req, res, next) => {
 	try {
@@ -15,6 +17,7 @@ export const testPost = (req, res, next) => {
 export const postByID = async (req, res, next, postId) => {
 	try {
 		let post = await Post.findOne({ postId: postId }).populate('postedBy', '_id name').exec();
+
 		if (!post) {
 			return res.error('POST_NOT_FOUND');
 		}
@@ -25,6 +28,7 @@ export const postByID = async (req, res, next, postId) => {
 		next(e);
 	}
 };
+
 
 export const getSinglePost = async (req, res, next) => {
 	try {
