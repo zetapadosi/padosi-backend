@@ -1,8 +1,6 @@
-
 import Post from '../model/postModel';
 import User from '../model/userModel';
 import config from '../../config/config';
-
 
 export const testPost = (req, res, next) => {
 	try {
@@ -28,7 +26,6 @@ export const postByID = async (req, res, next, postId) => {
 		next(e);
 	}
 };
-
 
 export const getSinglePost = async (req, res, next) => {
 	try {
@@ -56,7 +53,6 @@ export const createPost = async (req, res, next) => {
 
 export const listByUser = async (req, res, next) => {
 	try {
-		console.log('reqprofile', req.profile);
 		if (req.profile === undefined) {
 			return res.error('USER_IS_NOT_AUTHORIZED');
 		}
@@ -139,7 +135,11 @@ export const uncommentPost = async (req, res, next) => {
 		if (isRemoved === null) {
 			return res.ok({ message: 'USER_COMMENTED_ONCE', value: isRemoved });
 		}
-		const updatedComment = await Post.findOneAndUpdate({ postId: postId }, { $pull: { comments: { _id: commentId } } }, { new: true })
+		const updatedComment = await Post.findOneAndUpdate(
+			{ postId: postId },
+			{ $pull: { comments: { _id: commentId } } },
+			{ new: true },
+		)
 			.populate('comments.postedBy', '_id name userId picture')
 			.populate('postedBy', '_id name')
 			.exec();

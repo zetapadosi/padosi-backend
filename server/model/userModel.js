@@ -1,4 +1,3 @@
-
 import { Schema, model } from 'mongoose';
 import { generateRandomSring } from '../helper/encriptionHelper';
 
@@ -39,16 +38,6 @@ class User {
 						as: 'userDetails',
 					},
 				},
-				// {$project:
-				// {
-				// 	_id:1,
-				// 	name:
-				// }
-				// }
-				// { $unwind: '$posts' },
-				// { $count: 'posts' },
-				// { $count: '$posts.likes' },
-				// { count: '$posts.comments' },
 			]);
 
 			return data;
@@ -83,7 +72,10 @@ class User {
 					$lookup: {
 						from: 'users',
 						let: { userId: '$_id' },
-						pipeline: [{ $match: { $expr: { $eq: ['$_id', '$$userId'] } } }, { $project: { userId: 1, _id: 0, name: 1, picture: 1 } }],
+						pipeline: [
+							{ $match: { $expr: { $eq: ['$_id', '$$userId'] } } },
+							{ $project: { userId: 1, _id: 0, name: 1, picture: 1 } },
+						],
 						as: 'userData',
 					},
 				},
