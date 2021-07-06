@@ -1,15 +1,25 @@
-import { body,validationResult } from 'express-validator';
+import { body, validationResult } from 'express-validator';
 
+export const inputPostRules = () => [
+	body('tags', 'Tages are require').not().isEmpty(),
+	body('postText', 'Text is required to determine your idea').not().isEmpty(),
+	body('tags', 'Tages should not be empty').isArray({ min: 1 }),
+	body('tags.*', 'Tages langth should be in rage of 4 to  100 character').isLength({ min: 4, max: 100 }),
+	body('postText', 'Text langth should be in rage of 30 to  2650 character').isLength({ min: 30, max: 2650 }),
+];
 
-export const validate = (req,res,next) => {
-const errors = validationResult(req)
+export const inputCommentRules = () => [
+	body('commentText', 'Comment should be in range of 30 to 750 character').isLength({ min: 30, max: 750 }),
+];
 
-if (errors.isEmpty())  return next()
+export const validate = (req, res, next) => {
+	const errors = validationResult(req);
 
-const extractedErrors = []
-errors.array().map(err => {
- extractedErrors.push({[err.location]: err.location, params: err.param, msg:err.msg})
-})
-return res.status(400).json({errors: extractedErrors})
+	if (errors.isEmpty()) return next();
 
-}
+	const extractedErrors = [];
+	errors.array().map((err) => {
+		extractedErrors.push({ [err.location]: err.location, params: err.param, msg: err.msg });
+	});
+	return res.status(400).json({ errors: extractedErrors });
+};
