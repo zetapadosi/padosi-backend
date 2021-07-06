@@ -1,11 +1,15 @@
 import { body, validationResult } from 'express-validator';
 
 export const inputPostRules = () => [
-	body('tages', 'Tages are require').not().isEmpty(),
+	body('tags', 'Tages are require').not().isEmpty(),
 	body('postText', 'Text is required to determine your idea').not().isEmpty(),
-	body('tages', 'Tages should not be empty').isArray({ min: 1 }),
-	body('tages.*', 'Tages langth should be in rage of 4 to  100 character').isLength({ min: 4, max: 100 }),
-	body('postText', 'Text langth should be in rage of 30 to  1000 character').isLength({ min: 30, max: 1000 }),
+	body('tags', 'Tages should not be empty').isArray({ min: 1 }),
+	body('tags.*', 'Tages langth should be in rage of 4 to  100 character').isLength({ min: 4, max: 100 }),
+	body('postText', 'Text langth should be in rage of 30 to  2650 character').isLength({ min: 30, max: 2650 }),
+];
+
+export const inputCommentRules = () => [
+	body('commentText', 'Comment should be in range of 30 to 750 character').isLength({ min: 30, max: 750 }),
 ];
 
 export const validate = (req, res, next) => {
