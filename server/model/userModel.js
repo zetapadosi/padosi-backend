@@ -19,62 +19,100 @@ const userSchema = new Schema(
 );
 
 class User {
-	static async getPostOfUsers(options = {}) {
-		const data = await this.aggregate([
-			{
-				$geoNear: {
-					near: { type: 'Point', coordinates: [options.longitude, options.latitude] },
-					distanceField: 'dist.calculated',
-					maxDistance: options.distance,
-					spherical: true,
-				},
-			},
-			{ $project: { _id: 1 } },
-			{
-				$lookup: {
-					from: 'posts',
-					let: { userId: '$_id' },
-					pipeline: [{ $match: { $expr: { $eq: ['$postedBy', '$$userId'] } } }],
-					as: 'posts',
-				},
-			},
-			{ $unwind: '$posts' },
-			{
-				$lookup: {
-					from: 'users',
-					let: { userId: '$_id' },
-					pipeline: [{ $match: { $expr: { $eq: ['$_id', '$$userId'] } } }, { $project: { userId: 1, _id: 0, name: 1, picture: 1 } }],
-					as: 'userData',
-				},
-			},
-			{ $unwind: '$userData' },
-			{
-				$project: {
-					postId: '$posts.postId',
-					tags: '$posts.tags',
-					postText: '$posts.postText',
-					likes: '$posts.likes',
-					comments: '$posts.comments',
-					postedBy: {
-						name: '$userData.name',
-						picture: '$userData.picture',
-						userId: '$userData.userId',
-					},
-					createdAt: '$posts.createdAt',
-				},
-			},
-			{
-				$sort: { createdAt: 1 },
-			},
-			{
-				$skip: options.page || 0 > 0 ? (options.page || 0 - 1) * options.limit || 0 : 0,
-			},
-			{
-				$limit: options.limit || 8,
-			},
-		]);
-		return data;
+	static async getUserData(options = {}) {
 		try {
+			const data = await this.aggregate([
+				{
+					$lookup: {
+						from: 'posts',
+						let: { userId: '$_id' },
+						pipeline: [{ $match: { $expr: { $eq: ['$postedBy', '$$userId'] } } }],
+						as: 'posts',
+					},
+				},
+				{
+					$lookup: {
+						from: 'users',
+						let: { userId: '$postedBy' },
+						pipeline: [{ $match: { $expr: { $eq: ['$postedBy', '$$userId'] } } }],
+						as: 'userDetails',
+					},
+				},
+				// {$project:
+				// {
+				// 	_id:1,
+				// 	name:
+				// }
+				// }
+				// { $unwind: '$posts' },
+				// { $count: 'posts' },
+				// { $count: '$posts.likes' },
+				// { count: '$posts.comments' },
+			]);
+
+			return data;
+		} catch (e) {
+			console.error(e.message);
+			throw e;
+		}
+	}
+
+	static async getPostOfUsers(options = {}) {
+		try {
+			const data = await this.aggregate([
+				{
+					$geoNear: {
+						near: { type: 'Point', coordinates: [options.longitude, options.latitude] },
+						distanceField: 'dist.calculated',
+						maxDistance: options.distance,
+						spherical: true,
+					},
+				},
+				{ $project: { _id: 1 } },
+				{
+					$lookup: {
+						from: 'posts',
+						let: { userId: '$_id' },
+						pipeline: [{ $match: { $expr: { $eq: ['$postedBy', '$$userId'] } } }],
+						as: 'posts',
+					},
+				},
+				{ $unwind: '$posts' },
+				{
+					$lookup: {
+						from: 'users',
+						let: { userId: '$_id' },
+						pipeline: [{ $match: { $expr: { $eq: ['$_id', '$$userId'] } } }, { $project: { userId: 1, _id: 0, name: 1, picture: 1 } }],
+						as: 'userData',
+					},
+				},
+				{ $unwind: '$userData' },
+				{
+					$project: {
+						postId: '$posts.postId',
+						tags: '$posts.tags',
+						postText: '$posts.postText',
+						likes: '$posts.likes',
+						comments: '$posts.comments',
+						postedBy: {
+							name: '$userData.name',
+							picture: '$userData.picture',
+							userId: '$userData.userId',
+						},
+						createdAt: '$posts.createdAt',
+					},
+				},
+				{
+					$sort: { createdAt: 1 },
+				},
+				{
+					$skip: options.page || 0 > 0 ? (options.page || 0 - 1) * options.limit || 0 : 0,
+				},
+				{
+					$limit: options.limit || 8,
+				},
+			]);
+			return data;
 		} catch (e) {
 			console.error(e.message);
 			throw e;
