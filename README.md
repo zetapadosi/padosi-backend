@@ -37,7 +37,7 @@ npm run dev
 
 ### Dependencies
 
-```
+```b
 "dependencies": {
   "compression": "^1.7.4",
   "cookie-parser": "^1.4.5",
@@ -59,7 +59,7 @@ npm run dev
 
 ### Dev Dependencies
 
-```
+```b
 "devDependencies": {
   "@babel/core": "^7.14.3",
   "@babel/preset-env": "^7.14.4",
@@ -91,13 +91,24 @@ npm run dev
     - [x] Get the data of the post from the desired radious of 5 Km area.
     - [ ] Unit testing of getting the post data.
 
-  - [ ] Create the post method for the comment on the post with multiple users
-    - [ ] Add the input validation to the inputs as comment length.
+  - [x] Create the post method for the comment on the post with multiple users
+    - [x] Add the input validation to the inputs as comment length.
     - [ ] Unit testing of comments
 
   - [x] Create the post method for the like and unlike the post and comments as well
     - [ ] Unit testing of the like and dislike
 
+  - [x] Add the user profile page to get the user data with his/her posts
+    - [ ] Unit testing of the page
+
+- ### 🏁 Day 3️⃣ Work
+
+  - [x] Add search by Tags route and get the posts
+    - [x] Get all the tags value and search the tags
+    - [ ] Unit tesing for the test Route
+
+  - [ ] Add the follower and following routes to get the follower and following
+    - [ ] Unit testing for the Follower and following
 
 ---
 

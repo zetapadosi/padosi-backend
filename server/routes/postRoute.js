@@ -8,6 +8,7 @@ import {
 	likePost,
 	listByUser,
 	postByID,
+	searchByTags,
 	testPost,
 	uncommentPost,
 	unlikePost,
@@ -35,6 +36,8 @@ postRouter.put('/unlike', requireSignin, unlikePost);
 // Comment and un comment
 postRouter.put('/comment', requireSignin, inputCommentRules(), validate, commentPost);
 postRouter.put('/uncomment', requireSignin, uncommentPost);
+
+postRouter.post('/search/:userId', requireSignin, searchByTags);
 
 // Params route
 postRouter.param('userId', userByID);
