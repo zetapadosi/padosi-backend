@@ -110,6 +110,12 @@ npm run dev
   - [ ] Add the follower and following routes to get the follower and following
     - [ ] Unit testing for the Follower and following
 
+- ### 🏁 Day 4️⃣ Work
+
+  - [x] Add the update the distance and bio endpoint of the users
+    - [x] Get the details of the end points and update the values
+    - [ ] Unit Testing for the distance and bio update
+
 ---
 
 ### 🥇 The Endpoints and the output of the endpoints

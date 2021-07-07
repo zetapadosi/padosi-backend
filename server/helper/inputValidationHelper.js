@@ -11,6 +11,12 @@ export const inputPostRules = () => [
 export const inputCommentRules = () => [
 	body('commentText', 'Comment should be in range of 30 to 750 character').isLength({ min: 30, max: 750 }),
 ];
+export const inputBioRules = () => [
+	body('bioText', 'Bio text should be in range from 30 to 750').isLength({ min: 30, max: 750 }),
+];
+export const inputDistanceRules = () => [
+	body('distance', 'Distance rage is from 0 to 10 Km').isNumeric({ min: 0, max: 10 }),
+];
 
 export const validate = (req, res, next) => {
 	const errors = validationResult(req);

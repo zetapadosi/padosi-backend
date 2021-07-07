@@ -132,7 +132,6 @@ export const unlikePost = async (req, res, next) => {
 	try {
 		const { userId, postId } = req.body;
 		const isUnlike = await Post.findOne({ likes: userId });
-		console.log(isUnlike);
 		if (isUnlike === null) {
 			return res.ok({ message: 'ALREADY_UNLIKED_BY_USER', value: isUnlike });
 		}
