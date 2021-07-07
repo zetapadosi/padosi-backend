@@ -8,9 +8,11 @@ import {
 	userByID,
 } from '../controllers/userContoller';
 import { inputBioRules, inputDistanceRules, validate } from '../helper/inputValidationHelper';
+
 // import { isLoggedIn } from '../helper/isLoggedInHelper';
 
 const userRouter = new Router();
+
 
 /*
  REGISTER USER WITH THER ROUTE
@@ -18,6 +20,7 @@ const userRouter = new Router();
   /api/user/register
  */
 userRouter.post('/register', registerUser);
+
 
 userRouter.get('/:userId', requireSignin, getUserProfile);
 
@@ -37,6 +40,8 @@ userRouter.put(
 /**
  * Added the params route
  */
+userRouter.get('/:userId', requireSignin, getUserProfile);
+
 
 userRouter.param('userId', userByID);
 export default userRouter;
