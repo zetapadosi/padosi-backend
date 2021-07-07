@@ -1,0 +1,2882 @@
+{
+	"info": {
+		"_postman_id": "96bc518b-920c-4096-869d-1e41f7b413ea",
+		"name": "backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"mrwhite@gmail.com\",\n    \"userFrom\":\"google\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ApiUrl}}/auth/login",
+							"host": [
+								"{{ApiUrl}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \n    \"email\": \"dixitvora2020@gmail.com\",\n    \"userFrom\": \"google\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiUrl}}/auth/login",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "x-application-identifier",
+									"value": "boilerplate-development"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET,PUT,POST,DELETE,OPTIONS,PATCH"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization, Accept-Language, x-client-id, x-client-secret, x-client-device, x-padosi-auth-token"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "t=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGRkYWE4ZTVhY2MwZmU1ODQyYWFhNzciLCJpYXQiOjE2MjUxNDE3NjJ9.nI6-xR6wYIj5uwcn6ZfMYwIM9Anowiza8Im9mQkO6z8; Path=/"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "654"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"28e-4KbuLWQ/zfPitAvfNjBS9zK2oe8\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Jul 2021 12:16:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"status\": \"SIGNED_SUCCESS\",\n    \"message\": \"Signed Success\",\n    \"value\": {\n        \"user\": {\n            \"location\": {\n                \"type\": \"point\",\n                \"coordinates\": [\n                    70.77124893665314,\n                    22.27250212261258\n                ]\n            },\n            \"userFrom\": \"google\",\n            \"following\": [],\n            \"followers\": [],\n            \"_id\": \"60ddaa8e5acc0fe5842aaa77\",\n            \"userName\": \"Dixit\",\n            \"email\": \"dixitvora2020@gmail.com\",\n            \"picture\": \"https://lh3.googleusercontent.com/a-/AOh14GhllFUVgva_oY1excf40bHUOgqA2dWOzOYS3L6M1Q=s96-c\",\n            \"createdAt\": \"2021-07-01T11:44:14.163Z\",\n            \"updatedAt\": \"2021-07-01T11:44:14.163Z\",\n            \"__v\": 0\n        },\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGRkYWE4ZTVhY2MwZmU1ODQyYWFhNzciLCJpYXQiOjE2MjUxNDE3NjJ9.nI6-xR6wYIj5uwcn6ZfMYwIM9Anowiza8Im9mQkO6z8\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ApiUrl}}/auth/logout",
+							"host": [
+								"{{ApiUrl}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Logout",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ApiUrl}}/auth/logout",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "x-application-identifier",
+									"value": "boilerplate-development"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET,PUT,POST,DELETE,OPTIONS,PATCH"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization, Accept-Language, x-client-id, x-client-secret, x-client-device, x-padosi-auth-token"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "t=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "90"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5a-x1dfBVewhfrWbmBT+Blo3RI9eg0\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Jul 2021 12:28:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"status\": \"SIGNED_OUT_SUCCESS\",\n    \"value\": {},\n    \"message\": \"Signed Out Success\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register Route",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Selus\",\n    \"email\": \"mrseluda@gmail.com\",\n    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n    \"userFrom\": \"google\",\n    \"latitude\":\t22.3016 ,\n    \"longitude\": 70.7650\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ApiUrl}}/user/register",
+							"host": [
+								"{{ApiUrl}}"
+							],
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register Route",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\t\"userName\": \"Lincan\",\n\t\t\"email\": \"lsmith@gmail.com\",\n\t\t\"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n\t\t\"userFrom\": \"facebook\",\n\t\t\"location\": {\n\t\t\t\"type\": \"point\",\n\t\t\t\"coordinates\": [70.8127212524414, 22.2808367460213]\n\t\t}\n\t}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiUrl}}/user/register",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"user",
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "x-application-identifier",
+									"value": "boilerplate-development"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET,PUT,POST,DELETE,OPTIONS,PATCH"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization, Accept-Language, x-client-id, x-client-secret, x-client-device, x-padosi-auth-token"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "t=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiJwYWRvc2lVc2VyLTE2MjUyMjY0NDE0MTkzMDRkNzQwYmMxNGQiLCJpYXQiOjE2MjUyMjY0NDF9.E8f3DoT_TbiV3c7E820GpDP5wF6Lo07LUq8CFUkXxpc; Path=/"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "649"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"289-iIHsczc60xMEPeD3FwlJtCiSwVo\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Jul 2021 11:47:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"status\": \"REGISTRATION_SUCCESS\",\n    \"message\": \"Registration Success\",\n    \"value\": {\n        \"user\": {\n            \"location\": {\n                \"type\": \"point\",\n                \"coordinates\": [\n                    70.8127212524414,\n                    22.2808367460213\n                ]\n            },\n            \"userFrom\": \"facebook\",\n            \"following\": [],\n            \"followers\": [],\n            \"userName\": \"Lincan\",\n            \"email\": \"lsmith@gmail.com\",\n            \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n            \"_id\": \"padosiUser-1625226441419304d740bc14d\",\n            \"createdAt\": \"2021-07-02T11:47:21.420Z\",\n            \"updatedAt\": \"2021-07-02T11:47:21.420Z\",\n            \"__v\": 0\n        },\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiJwYWRvc2lVc2VyLTE2MjUyMjY0NDE0MTkzMDRkNzQwYmMxNGQiLCJpYXQiOjE2MjUyMjY0NDF9.E8f3DoT_TbiV3c7E820GpDP5wF6Lo07LUq8CFUkXxpc\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "User Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwYWRvc2lVc2VyLTE2MjU1MTQzOTYwMjgxNjk2M2YwYzgyYjYiLCJpYXQiOjE2MjU1MTQzOTZ9.IgQ5cAYdgKSSNZxdDGPqhPOd53dekrJPkxsOECEDDF4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ApiUrl}}/user/padosiUser-162551439602816963f0c82b6",
+							"host": [
+								"{{ApiUrl}}"
+							],
+							"path": [
+								"user",
+								"padosiUser-162551439602816963f0c82b6"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "User Profile",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ApiUrl}}/user/padosiUser-162551439602816963f0c82b6",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"user",
+										"padosiUser-162551439602816963f0c82b6"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "x-application-identifier",
+									"value": "boilerplate-development"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET,PUT,POST,DELETE,OPTIONS,PATCH"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization, Accept-Language, x-client-id, x-client-secret, x-client-device, x-padosi-auth-token"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"69fb-MDSXClO0tl6KDDfczk2gQWYKEyw\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Jul 2021 07:03:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"status\": \"SUCCESS\",\n    \"message\": \"Success\",\n    \"value\": [\n        {\n            \"_id\": \"60e3619cb9049d57e05bd024\",\n            \"location\": {\n                \"type\": \"Point\",\n                \"coordinates\": [\n                    70.8018,\n                    22.2843\n                ]\n            },\n            \"userFrom\": \"google\",\n            \"following\": [],\n            \"followers\": [],\n            \"name\": \"Angel\",\n            \"email\": \"mrangel@gmail.com\",\n            \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n            \"userId\": \"padosiUser-162551439602816963f0c82b6\",\n            \"createdAt\": \"2021-07-05T19:46:36.031Z\",\n            \"updatedAt\": \"2021-07-05T19:46:36.031Z\",\n            \"__v\": 0,\n            \"posts\": [\n                {\n                    \"_id\": \"60e3658d3cbd4c5b86ffc0f7\",\n                    \"tags\": [\n                        \"angel\",\n                        \"first\"\n                    ],\n                    \"likes\": [],\n                    \"postText\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste velit repellendus praesentium deserunt delectus, inventore voluptas similique alias quo quisquam voluptatibus, voluptate harum, obcaecati asperiores ipsum consectetur saepe assumenda sit quasi nobis suscipit earum? Eum facere ipsam, sint odio inventore praesentium! Nemo iure culpa veniam, debitis consequuntur sapiente enim officiis beatae reprehenderit saepe obcaecati ratione quibusdam iste non! Voluptas tempora vero magnam\",\n                    \"postedBy\": \"60e3619cb9049d57e05bd024\",\n                    \"postId\": \"padosiPost-1625515405071d3f650fefe64\",\n                    \"comments\": [],\n                    \"createdAt\": \"2021-07-05T20:03:25.072Z\",\n                    \"updatedAt\": \"2021-07-05T21:45:30.654Z\",\n                    \"__v\": 0\n                }\n            ],\n            \"userDetails\": [\n                {\n                    \"_id\": \"60e3619cb9049d57e05bd024\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.8018,\n                            22.2843\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Angel\",\n                    \"email\": \"mrangel@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-162551439602816963f0c82b6\",\n                    \"createdAt\": \"2021-07-05T19:46:36.031Z\",\n                    \"updatedAt\": \"2021-07-05T19:46:36.031Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e41ec1336d82e8ff0fdc7c\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.7838,\n                            22.2503\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Marvel\",\n                    \"email\": \"mrmarvel@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-16255628170239022edf3fe81\",\n                    \"createdAt\": \"2021-07-06T09:13:37.026Z\",\n                    \"updatedAt\": \"2021-07-06T09:13:37.026Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e420495fd3e0ec897623a7\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.7563,\n                            20.2945\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Killol\",\n                    \"email\": \"mrkillol@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-1625563209808c3f7ee6e4a26\",\n                    \"createdAt\": \"2021-07-06T09:20:09.815Z\",\n                    \"updatedAt\": \"2021-07-06T09:20:09.815Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e420c55fd3e0ec897623b1\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.7678,\n                            22.3094\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Sadbhavna\",\n                    \"email\": \"mrsadbhavna@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-16255633337777dbe8546aaf3\",\n                    \"createdAt\": \"2021-07-06T09:22:13.778Z\",\n                    \"updatedAt\": \"2021-07-06T09:22:13.778Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e423f95fd3e0ec897623bd\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.796,\n                            22.2954\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Mody\",\n                    \"email\": \"mrmody@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-16255641530961c013150ecba\",\n                    \"createdAt\": \"2021-07-06T09:35:53.096Z\",\n                    \"updatedAt\": \"2021-07-06T09:35:53.096Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e43b2e3f97f5044da7dc99\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.765,\n                            22.3016\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Selus\",\n                    \"email\": \"mrselud@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-1625570094761f64b6afa5f2c\",\n                    \"createdAt\": \"2021-07-06T11:14:54.764Z\",\n                    \"updatedAt\": \"2021-07-06T11:14:54.764Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e489bec79a4c51799c61ea\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.765,\n                            22.3016\n                        ]\n                    },\n                    \"bio\": \"hello this is my bio and is working with full strength\",\n                    \"userFrom\": \"google\",\n                    \"distance\": 5000,\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Selus\",\n                    \"email\": \"mrseluda@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-1625590206918b6fa425fa86c\",\n                    \"createdAt\": \"2021-07-06T16:50:06.920Z\",\n                    \"updatedAt\": \"2021-07-07T07:00:54.772Z\",\n                    \"__v\": 0\n                }\n            ]\n        },\n        {\n            \"_id\": \"60e41ec1336d82e8ff0fdc7c\",\n            \"location\": {\n                \"type\": \"Point\",\n                \"coordinates\": [\n                    70.7838,\n                    22.2503\n                ]\n            },\n            \"userFrom\": \"google\",\n            \"following\": [],\n            \"followers\": [],\n            \"name\": \"Marvel\",\n            \"email\": \"mrmarvel@gmail.com\",\n            \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n            \"userId\": \"padosiUser-16255628170239022edf3fe81\",\n            \"createdAt\": \"2021-07-06T09:13:37.026Z\",\n            \"updatedAt\": \"2021-07-06T09:13:37.026Z\",\n            \"__v\": 0,\n            \"posts\": [\n                {\n                    \"_id\": \"60e41f19336d82e8ff0fdc7f\",\n                    \"tags\": [\n                        \"marvel\",\n                        \"first\",\n                        \"hospital\"\n                    ],\n                    \"likes\": [],\n                    \"postText\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste velit repellendus praesentium deserunt delectus, inventore voluptas similique alias quo quisquam voluptatibus, voluptate harum, obcaecati asperiores ipsum consectetur saepe assumenda sit quasi nobis suscipit earum? Eum facere ipsam, sint odio inventore praesentium! Nemo iure culpa veniam, debitis consequuntur sapiente enim officiis beatae reprehenderit saepe obcaecati ratione quibusdam iste non! Voluptas tempora vero magnam\",\n                    \"postedBy\": \"60e41ec1336d82e8ff0fdc7c\",\n                    \"postId\": \"padosiPost-16255629052022c323aef104e\",\n                    \"comments\": [],\n                    \"createdAt\": \"2021-07-06T09:15:05.205Z\",\n                    \"updatedAt\": \"2021-07-06T09:15:05.205Z\",\n                    \"__v\": 0\n                }\n            ],\n            \"userDetails\": [\n                {\n                    \"_id\": \"60e3619cb9049d57e05bd024\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.8018,\n                            22.2843\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Angel\",\n                    \"email\": \"mrangel@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-162551439602816963f0c82b6\",\n                    \"createdAt\": \"2021-07-05T19:46:36.031Z\",\n                    \"updatedAt\": \"2021-07-05T19:46:36.031Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e41ec1336d82e8ff0fdc7c\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.7838,\n                            22.2503\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Marvel\",\n                    \"email\": \"mrmarvel@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-16255628170239022edf3fe81\",\n                    \"createdAt\": \"2021-07-06T09:13:37.026Z\",\n                    \"updatedAt\": \"2021-07-06T09:13:37.026Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e420495fd3e0ec897623a7\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.7563,\n                            20.2945\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Killol\",\n                    \"email\": \"mrkillol@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-1625563209808c3f7ee6e4a26\",\n                    \"createdAt\": \"2021-07-06T09:20:09.815Z\",\n                    \"updatedAt\": \"2021-07-06T09:20:09.815Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e420c55fd3e0ec897623b1\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.7678,\n                            22.3094\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Sadbhavna\",\n                    \"email\": \"mrsadbhavna@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-16255633337777dbe8546aaf3\",\n                    \"createdAt\": \"2021-07-06T09:22:13.778Z\",\n                    \"updatedAt\": \"2021-07-06T09:22:13.778Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e423f95fd3e0ec897623bd\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.796,\n                            22.2954\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Mody\",\n                    \"email\": \"mrmody@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-16255641530961c013150ecba\",\n                    \"createdAt\": \"2021-07-06T09:35:53.096Z\",\n                    \"updatedAt\": \"2021-07-06T09:35:53.096Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e43b2e3f97f5044da7dc99\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.765,\n                            22.3016\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Selus\",\n                    \"email\": \"mrselud@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-1625570094761f64b6afa5f2c\",\n                    \"createdAt\": \"2021-07-06T11:14:54.764Z\",\n                    \"updatedAt\": \"2021-07-06T11:14:54.764Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e489bec79a4c51799c61ea\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.765,\n                            22.3016\n                        ]\n                    },\n                    \"bio\": \"hello this is my bio and is working with full strength\",\n                    \"userFrom\": \"google\",\n                    \"distance\": 5000,\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Selus\",\n                    \"email\": \"mrseluda@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-1625590206918b6fa425fa86c\",\n                    \"createdAt\": \"2021-07-06T16:50:06.920Z\",\n                    \"updatedAt\": \"2021-07-07T07:00:54.772Z\",\n                    \"__v\": 0\n                }\n            ]\n        },\n        {\n            \"_id\": \"60e420495fd3e0ec897623a7\",\n            \"location\": {\n                \"type\": \"Point\",\n                \"coordinates\": [\n                    70.7563,\n                    20.2945\n                ]\n            },\n            \"userFrom\": \"google\",\n            \"following\": [],\n            \"followers\": [],\n            \"name\": \"Killol\",\n            \"email\": \"mrkillol@gmail.com\",\n            \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n            \"userId\": \"padosiUser-1625563209808c3f7ee6e4a26\",\n            \"createdAt\": \"2021-07-06T09:20:09.815Z\",\n            \"updatedAt\": \"2021-07-06T09:20:09.815Z\",\n            \"__v\": 0,\n            \"posts\": [\n                {\n                    \"_id\": \"60e4207a5fd3e0ec897623aa\",\n                    \"tags\": [\n                        \"killol\",\n                        \"first\",\n                        \"hospital\"\n                    ],\n                    \"likes\": [],\n                    \"postText\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste velit repellendus praesentium deserunt delectus, inventore voluptas similique alias quo quisquam voluptatibus, voluptate harum, obcaecati asperiores ipsum consectetur saepe assumenda sit quasi nobis suscipit earum? Eum facere ipsam, sint odio inventore praesentium! Nemo iure culpa veniam, debitis consequuntur sapiente enim officiis beatae reprehenderit saepe obcaecati ratione quibusdam iste non! Voluptas tempora vero magnam\",\n                    \"postedBy\": \"60e420495fd3e0ec897623a7\",\n                    \"postId\": \"padosiPost-1625563258040b9d41e26a88a\",\n                    \"comments\": [],\n                    \"createdAt\": \"2021-07-06T09:20:58.044Z\",\n                    \"updatedAt\": \"2021-07-06T09:20:58.044Z\",\n                    \"__v\": 0\n                }\n            ],\n            \"userDetails\": [\n                {\n                    \"_id\": \"60e3619cb9049d57e05bd024\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.8018,\n                            22.2843\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Angel\",\n                    \"email\": \"mrangel@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-162551439602816963f0c82b6\",\n                    \"createdAt\": \"2021-07-05T19:46:36.031Z\",\n                    \"updatedAt\": \"2021-07-05T19:46:36.031Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e41ec1336d82e8ff0fdc7c\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.7838,\n                            22.2503\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Marvel\",\n                    \"email\": \"mrmarvel@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-16255628170239022edf3fe81\",\n                    \"createdAt\": \"2021-07-06T09:13:37.026Z\",\n                    \"updatedAt\": \"2021-07-06T09:13:37.026Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e420495fd3e0ec897623a7\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.7563,\n                            20.2945\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Killol\",\n                    \"email\": \"mrkillol@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-1625563209808c3f7ee6e4a26\",\n                    \"createdAt\": \"2021-07-06T09:20:09.815Z\",\n                    \"updatedAt\": \"2021-07-06T09:20:09.815Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e420c55fd3e0ec897623b1\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.7678,\n                            22.3094\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Sadbhavna\",\n                    \"email\": \"mrsadbhavna@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-16255633337777dbe8546aaf3\",\n                    \"createdAt\": \"2021-07-06T09:22:13.778Z\",\n                    \"updatedAt\": \"2021-07-06T09:22:13.778Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e423f95fd3e0ec897623bd\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.796,\n                            22.2954\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Mody\",\n                    \"email\": \"mrmody@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-16255641530961c013150ecba\",\n                    \"createdAt\": \"2021-07-06T09:35:53.096Z\",\n                    \"updatedAt\": \"2021-07-06T09:35:53.096Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e43b2e3f97f5044da7dc99\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.765,\n                            22.3016\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Selus\",\n                    \"email\": \"mrselud@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-1625570094761f64b6afa5f2c\",\n                    \"createdAt\": \"2021-07-06T11:14:54.764Z\",\n                    \"updatedAt\": \"2021-07-06T11:14:54.764Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e489bec79a4c51799c61ea\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.765,\n                            22.3016\n                        ]\n                    },\n                    \"bio\": \"hello this is my bio and is working with full strength\",\n                    \"userFrom\": \"google\",\n                    \"distance\": 5000,\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Selus\",\n                    \"email\": \"mrseluda@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-1625590206918b6fa425fa86c\",\n                    \"createdAt\": \"2021-07-06T16:50:06.920Z\",\n                    \"updatedAt\": \"2021-07-07T07:00:54.772Z\",\n                    \"__v\": 0\n                }\n            ]\n        },\n        {\n            \"_id\": \"60e420c55fd3e0ec897623b1\",\n            \"location\": {\n                \"type\": \"Point\",\n                \"coordinates\": [\n                    70.7678,\n                    22.3094\n                ]\n            },\n            \"userFrom\": \"google\",\n            \"following\": [],\n            \"followers\": [],\n            \"name\": \"Sadbhavna\",\n            \"email\": \"mrsadbhavna@gmail.com\",\n            \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n            \"userId\": \"padosiUser-16255633337777dbe8546aaf3\",\n            \"createdAt\": \"2021-07-06T09:22:13.778Z\",\n            \"updatedAt\": \"2021-07-06T09:22:13.778Z\",\n            \"__v\": 0,\n            \"posts\": [\n                {\n                    \"_id\": \"60e4210e5fd3e0ec897623b4\",\n                    \"tags\": [\n                        \"sadbhavna\",\n                        \"first\",\n                        \"hospital\"\n                    ],\n                    \"likes\": [],\n                    \"postText\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste velit repellendus praesentium deserunt delectus, inventore voluptas similique alias quo quisquam voluptatibus, voluptate harum, obcaecati asperiores ipsum consectetur saepe assumenda sit quasi nobis suscipit earum? Eum facere ipsam, sint odio inventore praesentium! Nemo iure culpa veniam, debitis consequuntur sapiente enim officiis beatae reprehenderit saepe obcaecati ratione quibusdam iste non! Voluptas tempora vero magnam\",\n                    \"postedBy\": \"60e420c55fd3e0ec897623b1\",\n                    \"postId\": \"padosiPost-16255634064405d997c712c1c\",\n                    \"comments\": [],\n                    \"createdAt\": \"2021-07-06T09:23:26.443Z\",\n                    \"updatedAt\": \"2021-07-06T09:23:26.443Z\",\n                    \"__v\": 0\n                }\n            ],\n            \"userDetails\": [\n                {\n                    \"_id\": \"60e3619cb9049d57e05bd024\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.8018,\n                            22.2843\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Angel\",\n                    \"email\": \"mrangel@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-162551439602816963f0c82b6\",\n                    \"createdAt\": \"2021-07-05T19:46:36.031Z\",\n                    \"updatedAt\": \"2021-07-05T19:46:36.031Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e41ec1336d82e8ff0fdc7c\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.7838,\n                            22.2503\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Marvel\",\n                    \"email\": \"mrmarvel@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-16255628170239022edf3fe81\",\n                    \"createdAt\": \"2021-07-06T09:13:37.026Z\",\n                    \"updatedAt\": \"2021-07-06T09:13:37.026Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e420495fd3e0ec897623a7\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.7563,\n                            20.2945\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Killol\",\n                    \"email\": \"mrkillol@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-1625563209808c3f7ee6e4a26\",\n                    \"createdAt\": \"2021-07-06T09:20:09.815Z\",\n                    \"updatedAt\": \"2021-07-06T09:20:09.815Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e420c55fd3e0ec897623b1\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.7678,\n                            22.3094\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Sadbhavna\",\n                    \"email\": \"mrsadbhavna@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-16255633337777dbe8546aaf3\",\n                    \"createdAt\": \"2021-07-06T09:22:13.778Z\",\n                    \"updatedAt\": \"2021-07-06T09:22:13.778Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e423f95fd3e0ec897623bd\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.796,\n                            22.2954\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Mody\",\n                    \"email\": \"mrmody@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-16255641530961c013150ecba\",\n                    \"createdAt\": \"2021-07-06T09:35:53.096Z\",\n                    \"updatedAt\": \"2021-07-06T09:35:53.096Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e43b2e3f97f5044da7dc99\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.765,\n                            22.3016\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Selus\",\n                    \"email\": \"mrselud@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-1625570094761f64b6afa5f2c\",\n                    \"createdAt\": \"2021-07-06T11:14:54.764Z\",\n                    \"updatedAt\": \"2021-07-06T11:14:54.764Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e489bec79a4c51799c61ea\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.765,\n                            22.3016\n                        ]\n                    },\n                    \"bio\": \"hello this is my bio and is working with full strength\",\n                    \"userFrom\": \"google\",\n                    \"distance\": 5000,\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Selus\",\n                    \"email\": \"mrseluda@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-1625590206918b6fa425fa86c\",\n                    \"createdAt\": \"2021-07-06T16:50:06.920Z\",\n                    \"updatedAt\": \"2021-07-07T07:00:54.772Z\",\n                    \"__v\": 0\n                }\n            ]\n        },\n        {\n            \"_id\": \"60e423f95fd3e0ec897623bd\",\n            \"location\": {\n                \"type\": \"Point\",\n                \"coordinates\": [\n                    70.796,\n                    22.2954\n                ]\n            },\n            \"userFrom\": \"google\",\n            \"following\": [],\n            \"followers\": [],\n            \"name\": \"Mody\",\n            \"email\": \"mrmody@gmail.com\",\n            \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n            \"userId\": \"padosiUser-16255641530961c013150ecba\",\n            \"createdAt\": \"2021-07-06T09:35:53.096Z\",\n            \"updatedAt\": \"2021-07-06T09:35:53.096Z\",\n            \"__v\": 0,\n            \"posts\": [\n                {\n                    \"_id\": \"60e424185fd3e0ec897623c0\",\n                    \"tags\": [\n                        \"sadbhavna\",\n                        \"first\",\n                        \"hospital\"\n                    ],\n                    \"likes\": [],\n                    \"postText\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste velit repellendus praesentium deserunt delectus, inventore voluptas similique alias quo quisquam voluptatibus, voluptate harum, obcaecati asperiores ipsum consectetur saepe assumenda sit quasi nobis suscipit earum? Eum facere ipsam, sint odio inventore praesentium! Nemo iure culpa veniam, debitis consequuntur sapiente enim officiis beatae reprehenderit saepe obcaecati ratione quibusdam iste non! Voluptas tempora vero magnam\",\n                    \"postedBy\": \"60e423f95fd3e0ec897623bd\",\n                    \"postId\": \"padosiPost-1625564184050da8922643721\",\n                    \"comments\": [],\n                    \"createdAt\": \"2021-07-06T09:36:24.051Z\",\n                    \"updatedAt\": \"2021-07-06T09:36:24.051Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e424a4539f95f442e4cff9\",\n                    \"tags\": [\n                        \"mody\",\n                        \"first\",\n                        \"hospital\"\n                    ],\n                    \"likes\": [],\n                    \"postText\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste velit repellendus praesentium deserunt delectus, inventore voluptas similique alias quo quisquam voluptatibus, voluptate harum, obcaecati asperiores ipsum consectetur saepe assumenda sit quasi nobis suscipit earum? Eum facere ipsam, sint odio inventore praesentium! Nemo iure culpa veniam, debitis consequuntur sapiente enim officiis beatae reprehenderit saepe obcaecati ratione quibusdam iste non! Voluptas tempora vero magnam\",\n                    \"postedBy\": \"60e423f95fd3e0ec897623bd\",\n                    \"postId\": \"padosiPost-1625564324213b78c343e5933\",\n                    \"comments\": [],\n                    \"createdAt\": \"2021-07-06T09:38:44.217Z\",\n                    \"updatedAt\": \"2021-07-06T09:38:44.217Z\",\n                    \"__v\": 0\n                }\n            ],\n            \"userDetails\": [\n                {\n                    \"_id\": \"60e3619cb9049d57e05bd024\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.8018,\n                            22.2843\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Angel\",\n                    \"email\": \"mrangel@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-162551439602816963f0c82b6\",\n                    \"createdAt\": \"2021-07-05T19:46:36.031Z\",\n                    \"updatedAt\": \"2021-07-05T19:46:36.031Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e41ec1336d82e8ff0fdc7c\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.7838,\n                            22.2503\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Marvel\",\n                    \"email\": \"mrmarvel@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-16255628170239022edf3fe81\",\n                    \"createdAt\": \"2021-07-06T09:13:37.026Z\",\n                    \"updatedAt\": \"2021-07-06T09:13:37.026Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e420495fd3e0ec897623a7\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.7563,\n                            20.2945\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Killol\",\n                    \"email\": \"mrkillol@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-1625563209808c3f7ee6e4a26\",\n                    \"createdAt\": \"2021-07-06T09:20:09.815Z\",\n                    \"updatedAt\": \"2021-07-06T09:20:09.815Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e420c55fd3e0ec897623b1\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.7678,\n                            22.3094\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Sadbhavna\",\n                    \"email\": \"mrsadbhavna@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-16255633337777dbe8546aaf3\",\n                    \"createdAt\": \"2021-07-06T09:22:13.778Z\",\n                    \"updatedAt\": \"2021-07-06T09:22:13.778Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e423f95fd3e0ec897623bd\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.796,\n                            22.2954\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Mody\",\n                    \"email\": \"mrmody@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-16255641530961c013150ecba\",\n                    \"createdAt\": \"2021-07-06T09:35:53.096Z\",\n                    \"updatedAt\": \"2021-07-06T09:35:53.096Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e43b2e3f97f5044da7dc99\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.765,\n                            22.3016\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Selus\",\n                    \"email\": \"mrselud@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-1625570094761f64b6afa5f2c\",\n                    \"createdAt\": \"2021-07-06T11:14:54.764Z\",\n                    \"updatedAt\": \"2021-07-06T11:14:54.764Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e489bec79a4c51799c61ea\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.765,\n                            22.3016\n                        ]\n                    },\n                    \"bio\": \"hello this is my bio and is working with full strength\",\n                    \"userFrom\": \"google\",\n                    \"distance\": 5000,\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Selus\",\n                    \"email\": \"mrseluda@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-1625590206918b6fa425fa86c\",\n                    \"createdAt\": \"2021-07-06T16:50:06.920Z\",\n                    \"updatedAt\": \"2021-07-07T07:00:54.772Z\",\n                    \"__v\": 0\n                }\n            ]\n        },\n        {\n            \"_id\": \"60e43b2e3f97f5044da7dc99\",\n            \"location\": {\n                \"type\": \"Point\",\n                \"coordinates\": [\n                    70.765,\n                    22.3016\n                ]\n            },\n            \"userFrom\": \"google\",\n            \"following\": [],\n            \"followers\": [],\n            \"name\": \"Selus\",\n            \"email\": \"mrselud@gmail.com\",\n            \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n            \"userId\": \"padosiUser-1625570094761f64b6afa5f2c\",\n            \"createdAt\": \"2021-07-06T11:14:54.764Z\",\n            \"updatedAt\": \"2021-07-06T11:14:54.764Z\",\n            \"__v\": 0,\n            \"posts\": [],\n            \"userDetails\": [\n                {\n                    \"_id\": \"60e3619cb9049d57e05bd024\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.8018,\n                            22.2843\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Angel\",\n                    \"email\": \"mrangel@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-162551439602816963f0c82b6\",\n                    \"createdAt\": \"2021-07-05T19:46:36.031Z\",\n                    \"updatedAt\": \"2021-07-05T19:46:36.031Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e41ec1336d82e8ff0fdc7c\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.7838,\n                            22.2503\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Marvel\",\n                    \"email\": \"mrmarvel@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-16255628170239022edf3fe81\",\n                    \"createdAt\": \"2021-07-06T09:13:37.026Z\",\n                    \"updatedAt\": \"2021-07-06T09:13:37.026Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e420495fd3e0ec897623a7\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.7563,\n                            20.2945\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Killol\",\n                    \"email\": \"mrkillol@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-1625563209808c3f7ee6e4a26\",\n                    \"createdAt\": \"2021-07-06T09:20:09.815Z\",\n                    \"updatedAt\": \"2021-07-06T09:20:09.815Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e420c55fd3e0ec897623b1\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.7678,\n                            22.3094\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Sadbhavna\",\n                    \"email\": \"mrsadbhavna@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-16255633337777dbe8546aaf3\",\n                    \"createdAt\": \"2021-07-06T09:22:13.778Z\",\n                    \"updatedAt\": \"2021-07-06T09:22:13.778Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e423f95fd3e0ec897623bd\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.796,\n                            22.2954\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Mody\",\n                    \"email\": \"mrmody@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-16255641530961c013150ecba\",\n                    \"createdAt\": \"2021-07-06T09:35:53.096Z\",\n                    \"updatedAt\": \"2021-07-06T09:35:53.096Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e43b2e3f97f5044da7dc99\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.765,\n                            22.3016\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Selus\",\n                    \"email\": \"mrselud@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-1625570094761f64b6afa5f2c\",\n                    \"createdAt\": \"2021-07-06T11:14:54.764Z\",\n                    \"updatedAt\": \"2021-07-06T11:14:54.764Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e489bec79a4c51799c61ea\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.765,\n                            22.3016\n                        ]\n                    },\n                    \"bio\": \"hello this is my bio and is working with full strength\",\n                    \"userFrom\": \"google\",\n                    \"distance\": 5000,\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Selus\",\n                    \"email\": \"mrseluda@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-1625590206918b6fa425fa86c\",\n                    \"createdAt\": \"2021-07-06T16:50:06.920Z\",\n                    \"updatedAt\": \"2021-07-07T07:00:54.772Z\",\n                    \"__v\": 0\n                }\n            ]\n        },\n        {\n            \"_id\": \"60e489bec79a4c51799c61ea\",\n            \"location\": {\n                \"type\": \"Point\",\n                \"coordinates\": [\n                    70.765,\n                    22.3016\n                ]\n            },\n            \"bio\": \"hello this is my bio and is working with full strength\",\n            \"userFrom\": \"google\",\n            \"distance\": 5000,\n            \"following\": [],\n            \"followers\": [],\n            \"name\": \"Selus\",\n            \"email\": \"mrseluda@gmail.com\",\n            \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n            \"userId\": \"padosiUser-1625590206918b6fa425fa86c\",\n            \"createdAt\": \"2021-07-06T16:50:06.920Z\",\n            \"updatedAt\": \"2021-07-07T07:00:54.772Z\",\n            \"__v\": 0,\n            \"posts\": [],\n            \"userDetails\": [\n                {\n                    \"_id\": \"60e3619cb9049d57e05bd024\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.8018,\n                            22.2843\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Angel\",\n                    \"email\": \"mrangel@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-162551439602816963f0c82b6\",\n                    \"createdAt\": \"2021-07-05T19:46:36.031Z\",\n                    \"updatedAt\": \"2021-07-05T19:46:36.031Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e41ec1336d82e8ff0fdc7c\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.7838,\n                            22.2503\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Marvel\",\n                    \"email\": \"mrmarvel@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-16255628170239022edf3fe81\",\n                    \"createdAt\": \"2021-07-06T09:13:37.026Z\",\n                    \"updatedAt\": \"2021-07-06T09:13:37.026Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e420495fd3e0ec897623a7\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.7563,\n                            20.2945\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Killol\",\n                    \"email\": \"mrkillol@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-1625563209808c3f7ee6e4a26\",\n                    \"createdAt\": \"2021-07-06T09:20:09.815Z\",\n                    \"updatedAt\": \"2021-07-06T09:20:09.815Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e420c55fd3e0ec897623b1\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.7678,\n                            22.3094\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Sadbhavna\",\n                    \"email\": \"mrsadbhavna@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-16255633337777dbe8546aaf3\",\n                    \"createdAt\": \"2021-07-06T09:22:13.778Z\",\n                    \"updatedAt\": \"2021-07-06T09:22:13.778Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e423f95fd3e0ec897623bd\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.796,\n                            22.2954\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Mody\",\n                    \"email\": \"mrmody@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-16255641530961c013150ecba\",\n                    \"createdAt\": \"2021-07-06T09:35:53.096Z\",\n                    \"updatedAt\": \"2021-07-06T09:35:53.096Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e43b2e3f97f5044da7dc99\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.765,\n                            22.3016\n                        ]\n                    },\n                    \"userFrom\": \"google\",\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Selus\",\n                    \"email\": \"mrselud@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-1625570094761f64b6afa5f2c\",\n                    \"createdAt\": \"2021-07-06T11:14:54.764Z\",\n                    \"updatedAt\": \"2021-07-06T11:14:54.764Z\",\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"60e489bec79a4c51799c61ea\",\n                    \"location\": {\n                        \"type\": \"Point\",\n                        \"coordinates\": [\n                            70.765,\n                            22.3016\n                        ]\n                    },\n                    \"bio\": \"hello this is my bio and is working with full strength\",\n                    \"userFrom\": \"google\",\n                    \"distance\": 5000,\n                    \"following\": [],\n                    \"followers\": [],\n                    \"name\": \"Selus\",\n                    \"email\": \"mrseluda@gmail.com\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-1625590206918b6fa425fa86c\",\n                    \"createdAt\": \"2021-07-06T16:50:06.920Z\",\n                    \"updatedAt\": \"2021-07-07T07:00:54.772Z\",\n                    \"__v\": 0\n                }\n            ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "update Bio",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwYWRvc2lVc2VyLTE2MjU1OTAyMDY5MThiNmZhNDI1ZmE4NmMiLCJpYXQiOjE2MjU2NDA5MTZ9.BWqNJTF2FcZDWxqIoB1s6X-hJ0ba0moOx4mdi2ezHC4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"bioText\":\"hello this is my bio and is working with full strength\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ApiUrl}}/user/bio/padosiUser-1625590206918b6fa425fa86c",
+							"host": [
+								"{{ApiUrl}}"
+							],
+							"path": [
+								"user",
+								"bio",
+								"padosiUser-1625590206918b6fa425fa86c"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update Bio",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"bioText\":\"hello this is my bio and is working with full strength\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiUrl}}/user/bio/padosiUser-1625590206918b6fa425fa86c",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"user",
+										"bio",
+										"padosiUser-1625590206918b6fa425fa86c"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "x-application-identifier",
+									"value": "boilerplate-development"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET,PUT,POST,DELETE,OPTIONS,PATCH"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization, Accept-Language, x-client-id, x-client-secret, x-client-device, x-padosi-auth-token"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "529"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"211-aXXVfjFmi8k75tmG5SRycdojQ4s\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Jul 2021 07:00:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"status\": \"SUCCESS\",\n    \"message\": \"Success\",\n    \"value\": {\n        \"location\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n                70.765,\n                22.3016\n            ]\n        },\n        \"bio\": \"hello this is my bio and is working with full strength\",\n        \"userFrom\": \"google\",\n        \"distance\": 5000,\n        \"following\": [],\n        \"followers\": [],\n        \"_id\": \"60e489bec79a4c51799c61ea\",\n        \"name\": \"Selus\",\n        \"email\": \"mrseluda@gmail.com\",\n        \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n        \"userId\": \"padosiUser-1625590206918b6fa425fa86c\",\n        \"createdAt\": \"2021-07-06T16:50:06.920Z\",\n        \"updatedAt\": \"2021-07-07T07:00:54.772Z\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update distance",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwYWRvc2lVc2VyLTE2MjU1OTAyMDY5MThiNmZhNDI1ZmE4NmMiLCJpYXQiOjE2MjU2NDczMzR9._JeXzmf3SiZZE0hi47tAoNFlZodqDx_0EOIwVNLMthg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"distance\":6\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ApiUrl}}/user/distance/padosiUser-1625590206918b6fa425fa86c",
+							"host": [
+								"{{ApiUrl}}"
+							],
+							"path": [
+								"user",
+								"distance",
+								"padosiUser-1625590206918b6fa425fa86c"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update distance",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"distance\":6\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiUrl}}/user/distance/padosiUser-1625590206918b6fa425fa86c",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"user",
+										"distance",
+										"padosiUser-1625590206918b6fa425fa86c"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "x-application-identifier",
+									"value": "boilerplate-development"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET,PUT,POST,DELETE,OPTIONS,PATCH"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization, Accept-Language, x-client-id, x-client-secret, x-client-device, x-padosi-auth-token"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "529"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"211-gaT6Q4h+obwKzprloB7zG5PCs5Q\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Jul 2021 08:53:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"status\": \"SUCCESS\",\n    \"message\": \"Success\",\n    \"value\": {\n        \"location\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n                70.765,\n                22.3016\n            ]\n        },\n        \"bio\": \"hello this is my bio and is working with full strength\",\n        \"userFrom\": \"google\",\n        \"distance\": 6000,\n        \"following\": [],\n        \"followers\": [],\n        \"_id\": \"60e489bec79a4c51799c61ea\",\n        \"name\": \"Selus\",\n        \"email\": \"mrseluda@gmail.com\",\n        \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n        \"userId\": \"padosiUser-1625590206918b6fa425fa86c\",\n        \"createdAt\": \"2021-07-06T16:50:06.920Z\",\n        \"updatedAt\": \"2021-07-07T08:53:33.592Z\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "Test",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGRkYWE4ZTVhY2MwZmU1ODQyYWFhNzciLCJpYXQiOjE2MjUxNTAzNzJ9.yltZvjXPP4unUCaZj1KZ3OkCz8o0_2N1lC4R_1JiSho",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ApiUrl}}/post",
+							"host": [
+								"{{ApiUrl}}"
+							],
+							"path": [
+								"post"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Test",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ApiUrl}}/post",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"post"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "x-application-identifier",
+									"value": "boilerplate-development"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET,PUT,POST,DELETE,OPTIONS,PATCH"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization, Accept-Language, x-client-id, x-client-secret, x-client-device, x-padosi-auth-token"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "93"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5d-beQ2tjqvUYDHFN1TdKexvR7ewd8\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 01 Jul 2021 14:46:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"status\": \"SUCCESS\",\n    \"message\": \"Success\",\n    \"value\": \"The test Post is working \"\n}"
+						}
+					]
+				},
+				{
+					"name": "CreatePost",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwYWRvc2lVc2VyLTE2MjU1NjI4MTcwMjM5MDIyZWRmM2ZlODEiLCJpYXQiOjE2MjU1NjI4MTd9.2xl_qjocim2TTXJKzamWNvKy_ARzp5T2Qzy8UyGAIG4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n  \"tags\":[\"marvel\",\"first\", \"hospital\"],\n  \"postText\":\"Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste velit repellendus praesentium deserunt delectus, inventore voluptas similique alias quo quisquam voluptatibus, voluptate harum, obcaecati asperiores ipsum consectetur saepe assumenda sit quasi nobis suscipit earum? Eum facere ipsam, sint odio inventore praesentium! Nemo iure culpa veniam, debitis consequuntur sapiente enim officiis beatae reprehenderit saepe obcaecati ratione quibusdam iste non! Voluptas tempora vero magnam\"\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ApiUrl}}/post/create/padosiUser-16255628170239022edf3fe81",
+							"host": [
+								"{{ApiUrl}}"
+							],
+							"path": [
+								"post",
+								"create",
+								"padosiUser-16255628170239022edf3fe81"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "CreatePost",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"tages\":[\"#theWork\",\"#myWork\",\"#withInOffice\", \"#workFromHome\",\"#workStandard\"],\n  \"postText\":\"Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, hic dignissimos vitae non harum praesentium, rerum sunt repellat blanditiis ut nostrum reprehenderit amet, similique temporibus porro explicabo ducimus ad dolorem quisquam animi dolor qui a! Tenetur debitis odio quod? Sunt, illum. Doloribus, delectus impedit, a maiores dolorum nihil cum minus nemo vitae quasi dolore at cupiditate consectetur iste corrupti quidem esse? Ducimus non debitis consequuntur dolores at atque ex repellendus harum reiciendis ea recusandae optio, incidunt illum nobis! Sed consequuntur at numquam officiis impedit pariatur vero, amet ipsam error. Quidem a molestiae iure. Doloremque obcaecati voluptates ipsam odit aspernatur harum hic distinctio corrupti unde quia iste iure fuga, quod architecto dolore. Necessitatibus culpa suscipit tenetur nostrum ea, optio natus debitis? Excepturi quae sequi corrupti iure praesentium. Neque magni eius provident excepturi ratione laboriosam deleniti assumenda vero! Eligendi ex pariatur optio, aspernatur quas similique odio aut fuga, deserunt dolore fugiat praesentium, eum vitae laudantium animi nesciunt. Temporibus ipsum velit repudiandae quod id. Odit, quia harum. Voluptatibus iusto quisquam nostrum odio officiis maiores non natus blanditiis quis nesciunt consequuntur nulla, vero molestias vitae tenetur ad eum dolor ab, suscipit libero cum officia porro fugiat. Culpa magnam minima ducimus, aliquid error assumenda ratione suscipit beatae, atque necessitatibus aperiam est libero! In modi optio eos sequi dignissimos distinctio magnam tempore et laudantium, debitis quisquam dolorem corrupti voluptatem. Ullam, architecto repudiandae. Ex, eius. Est, cupiditate accusamus placeat sit alias dolores libero commodi debitis nemo beatae voluptatibus, nostrum molestias repellat illum. Enim ipsam, repellendus, neque tempore sint quisquam iusto voluptate eos dolore architecto magnam consectetur consequuntur incidunt ullam illum, pariatur deserunt optio alias labore! Illo quidem possimus sit hic facere neque vel harum quo repellat. Reiciendis perspiciatis exercitationem ex odio hic, numquam culpa consectetur, ad a deserunt voluptates ratione nemo, suscipit quia fuga laborum sapiente sint aperiam. Eos totam tenetur aliquam odio maiores, ex rem officiis. Quam tempora voluptatum alias recusandae! Vel, atque ipsum blanditiis quae fuga quod, aperiam totam temporibus et molestias perspiciatis dolore inventore rem expedita? Necessitatibus fugiat illum, tenetur modi autem minus quibusdam voluptatibus quidem nostrum veritatis dolores quis ducimus. Adipisci enim, ad accusamus repellat delectus voluptas harum eaque exercitationem accusantium vero modi hic explicabo assumenda dolore quam animi sequi commodi tempora optio consectetur autem praesentium. Libero sed dolore impedit sit similique sapiente ipsam nemo. Iste a eveniet soluta, dolorum sapiente consequatur commodi ea quo. Tempore, laborum ducimus? Unde quidem, fugit exercitationem quasi porro reiciendis vel minus cumque, praesentium facilis reprehenderit. Sint consequatur, reprehenderit, dolores nesciunt saepe deleniti iste alias qui hic ut id explicabo quis quibusdam temporibus quam libero aliquid? Consequuntur architecto sunt ullam quasi minus quod, suscipit, voluptatum repellendus omnis debitis ratione illum, velit fugit. Sed saepe vero fuga aperiam reprehenderit voluptate consequuntur laboriosam molestias eius nostrum. Nemo dicta voluptatem autem tenetur velit non voluptates quasi sequi, amet atque error eum eius. Fuga labore cumque earum molestiae, minus optio harum. Dolorem amet debitis sunt quae dolorum doloremque consequuntur aliquam, molestiae dolor nostrum neque voluptatum quia rerum, minus voluptas eveniet voluptatem nihil error architecto esse blanditiis, eius excepturi laudantium. Ratione eos tempore atque nesciunt est fuga eaque iusto, omnis molestiae sint maxime similique distinctio! Eligendi optio sit quibusdam accusamus, aliquam voluptatibus possimus. Nobis nihil quas sequi aliquam, quisquam cum quis, aliquid hic excepturi veritatis, earum tempora quae quod ut veniam magnam? Asperiores odit, voluptatem a, illo, dolorem quod consequatur quo eum dolores officiis temporibus hic veniam quibusdam eveniet totam error esse doloribus. Tenetur officiis, expedita at quis repellat saepe exercitationem error veniam consequuntur natus facere porro adipisci. Soluta mollitia quibusdam, blanditiis, consequatur explicabo quidem harum similique optio eveniet, qui nulla corporis minus?\"\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiUrl}}/post/create/padosiUser-162521558923692b4c76c16df",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"post",
+										"create",
+										"padosiUser-162521558923692b4c76c16df"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "x-application-identifier",
+									"value": "boilerplate-development"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET,PUT,POST,DELETE,OPTIONS,PATCH"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization, Accept-Language, x-client-id, x-client-secret, x-client-device, x-padosi-auth-token"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1440-+SUbUrAPI16t9o8X+mv5ZE6cnUQ\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Jul 2021 09:14:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"status\": \"SUCCESS\",\n    \"message\": \"Success\",\n    \"value\": {\n        \"tages\": [\n            \"#theWork\",\n            \"#myWork\",\n            \"#withInOffice\",\n            \"#workFromHome\",\n            \"#workStandard\"\n        ],\n        \"likes\": [],\n        \"postText\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, hic dignissimos vitae non harum praesentium, rerum sunt repellat blanditiis ut nostrum reprehenderit amet, similique temporibus porro explicabo ducimus ad dolorem quisquam animi dolor qui a! Tenetur debitis odio quod? Sunt, illum. Doloribus, delectus impedit, a maiores dolorum nihil cum minus nemo vitae quasi dolore at cupiditate consectetur iste corrupti quidem esse? Ducimus non debitis consequuntur dolores at atque ex repellendus harum reiciendis ea recusandae optio, incidunt illum nobis! Sed consequuntur at numquam officiis impedit pariatur vero, amet ipsam error. Quidem a molestiae iure. Doloremque obcaecati voluptates ipsam odit aspernatur harum hic distinctio corrupti unde quia iste iure fuga, quod architecto dolore. Necessitatibus culpa suscipit tenetur nostrum ea, optio natus debitis? Excepturi quae sequi corrupti iure praesentium. Neque magni eius provident excepturi ratione laboriosam deleniti assumenda vero! Eligendi ex pariatur optio, aspernatur quas similique odio aut fuga, deserunt dolore fugiat praesentium, eum vitae laudantium animi nesciunt. Temporibus ipsum velit repudiandae quod id. Odit, quia harum. Voluptatibus iusto quisquam nostrum odio officiis maiores non natus blanditiis quis nesciunt consequuntur nulla, vero molestias vitae tenetur ad eum dolor ab, suscipit libero cum officia porro fugiat. Culpa magnam minima ducimus, aliquid error assumenda ratione suscipit beatae, atque necessitatibus aperiam est libero! In modi optio eos sequi dignissimos distinctio magnam tempore et laudantium, debitis quisquam dolorem corrupti voluptatem. Ullam, architecto repudiandae. Ex, eius. Est, cupiditate accusamus placeat sit alias dolores libero commodi debitis nemo beatae voluptatibus, nostrum molestias repellat illum. Enim ipsam, repellendus, neque tempore sint quisquam iusto voluptate eos dolore architecto magnam consectetur consequuntur incidunt ullam illum, pariatur deserunt optio alias labore! Illo quidem possimus sit hic facere neque vel harum quo repellat. Reiciendis perspiciatis exercitationem ex odio hic, numquam culpa consectetur, ad a deserunt voluptates ratione nemo, suscipit quia fuga laborum sapiente sint aperiam. Eos totam tenetur aliquam odio maiores, ex rem officiis. Quam tempora voluptatum alias recusandae! Vel, atque ipsum blanditiis quae fuga quod, aperiam totam temporibus et molestias perspiciatis dolore inventore rem expedita? Necessitatibus fugiat illum, tenetur modi autem minus quibusdam voluptatibus quidem nostrum veritatis dolores quis ducimus. Adipisci enim, ad accusamus repellat delectus voluptas harum eaque exercitationem accusantium vero modi hic explicabo assumenda dolore quam animi sequi commodi tempora optio consectetur autem praesentium. Libero sed dolore impedit sit similique sapiente ipsam nemo. Iste a eveniet soluta, dolorum sapiente consequatur commodi ea quo. Tempore, laborum ducimus? Unde quidem, fugit exercitationem quasi porro reiciendis vel minus cumque, praesentium facilis reprehenderit. Sint consequatur, reprehenderit, dolores nesciunt saepe deleniti iste alias qui hic ut id explicabo quis quibusdam temporibus quam libero aliquid? Consequuntur architecto sunt ullam quasi minus quod, suscipit, voluptatum repellendus omnis debitis ratione illum, velit fugit. Sed saepe vero fuga aperiam reprehenderit voluptate consequuntur laboriosam molestias eius nostrum. Nemo dicta voluptatem autem tenetur velit non voluptates quasi sequi, amet atque error eum eius. Fuga labore cumque earum molestiae, minus optio harum. Dolorem amet debitis sunt quae dolorum doloremque consequuntur aliquam, molestiae dolor nostrum neque voluptatum quia rerum, minus voluptas eveniet voluptatem nihil error architecto esse blanditiis, eius excepturi laudantium. Ratione eos tempore atque nesciunt est fuga eaque iusto, omnis molestiae sint maxime similique distinctio! Eligendi optio sit quibusdam accusamus, aliquam voluptatibus possimus. Nobis nihil quas sequi aliquam, quisquam cum quis, aliquid hic excepturi veritatis, earum tempora quae quod ut veniam magnam? Asperiores odit, voluptatem a, illo, dolorem quod consequatur quo eum dolores officiis temporibus hic veniam quibusdam eveniet totam error esse doloribus. Tenetur officiis, expedita at quis repellat saepe exercitationem error veniam consequuntur natus facere porro adipisci. Soluta mollitia quibusdam, blanditiis, consequatur explicabo quidem harum similique optio eveniet, qui nulla corporis minus?\",\n        \"postedBy\": {\n            \"location\": {\n                \"type\": \"point\",\n                \"coordinates\": [\n                    70.77124893665314,\n                    22.27250212261258\n                ]\n            },\n            \"userFrom\": \"google\",\n            \"following\": [],\n            \"followers\": [],\n            \"_id\": \"padosiUser-162521558923692b4c76c16df\",\n            \"userName\": \"Dixit\",\n            \"email\": \"dixitvora@gmail.com\",\n            \"picture\": \"https://lh3.googleusercontent.com/a-/AOh14GhllFUVgva_oY1excf40bHUOgqA2dWOzOYS3L6M1Q=s96-c\",\n            \"createdAt\": \"2021-07-02T08:46:29.248Z\",\n            \"updatedAt\": \"2021-07-02T08:46:29.248Z\",\n            \"__v\": 0\n        },\n        \"_id\": \"padosiPost-1625217280183c6fd1e855aaf\",\n        \"comments\": [],\n        \"__v\": 0\n    }\n}"
+						},
+						{
+							"name": "CreatePost",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\n  \"tags\":[\"marvel\",\"first\", \"hospital\"],\n  \"postText\":\"Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste velit repellendus praesentium deserunt delectus, inventore voluptas similique alias quo quisquam voluptatibus, voluptate harum, obcaecati asperiores ipsum consectetur saepe assumenda sit quasi nobis suscipit earum? Eum facere ipsam, sint odio inventore praesentium! Nemo iure culpa veniam, debitis consequuntur sapiente enim officiis beatae reprehenderit saepe obcaecati ratione quibusdam iste non! Voluptas tempora vero magnam\"\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiUrl}}/post/create/padosiUser-16255628170239022edf3fe81",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"post",
+										"create",
+										"padosiUser-16255628170239022edf3fe81"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "x-application-identifier",
+									"value": "boilerplate-development"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET,PUT,POST,DELETE,OPTIONS,PATCH"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization, Accept-Language, x-client-id, x-client-secret, x-client-device, x-padosi-auth-token"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "958"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3be-BynR+kdibDl3l5eu2yuXHS44CtE\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 06 Jul 2021 09:15:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"status\": \"SUCCESS\",\n    \"message\": \"Success\",\n    \"value\": [\n        {\n            \"tags\": [\n                \"marvel\",\n                \"first\",\n                \"hospital\"\n            ],\n            \"likes\": [],\n            \"_id\": \"60e41f19336d82e8ff0fdc7f\",\n            \"postText\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste velit repellendus praesentium deserunt delectus, inventore voluptas similique alias quo quisquam voluptatibus, voluptate harum, obcaecati asperiores ipsum consectetur saepe assumenda sit quasi nobis suscipit earum? Eum facere ipsam, sint odio inventore praesentium! Nemo iure culpa veniam, debitis consequuntur sapiente enim officiis beatae reprehenderit saepe obcaecati ratione quibusdam iste non! Voluptas tempora vero magnam\",\n            \"postedBy\": {\n                \"_id\": \"60e41ec1336d82e8ff0fdc7c\",\n                \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                \"userId\": \"padosiUser-16255628170239022edf3fe81\"\n            },\n            \"postId\": \"padosiPost-16255629052022c323aef104e\",\n            \"comments\": [],\n            \"createdAt\": \"2021-07-06T09:15:05.205Z\",\n            \"updatedAt\": \"2021-07-06T09:15:05.205Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "getpost",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwYWRvc2lVc2VyLTE2MjU1NjQxNTMwOTYxYzAxMzE1MGVjYmEiLCJpYXQiOjE2MjU1NjQxNTN9.pFpsHgahcmVVBQErzZPPfSHJowz3Vl66zJawVDVgJE8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ApiUrl}}/post/wall/padosiUser-16255641530961c013150ecba",
+							"host": [
+								"{{ApiUrl}}"
+							],
+							"path": [
+								"post",
+								"wall",
+								"padosiUser-16255641530961c013150ecba"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getpost",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ApiUrl}}/post/wall/padosiUser-16255641530961c013150ecba",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"post",
+										"wall",
+										"padosiUser-16255641530961c013150ecba"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "x-application-identifier",
+									"value": "boilerplate-development"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET,PUT,POST,DELETE,OPTIONS,PATCH"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization, Accept-Language, x-client-id, x-client-secret, x-client-device, x-padosi-auth-token"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9ee-aKU3SrOLBTmsHFakHn2IIgXPHfU\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 06 Jul 2021 09:37:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"status\": \"SUCCESS\",\n    \"message\": \"Success\",\n    \"value\": [\n        {\n            \"_id\": \"60e3619cb9049d57e05bd024\",\n            \"postId\": \"padosiPost-1625515405071d3f650fefe64\",\n            \"tags\": [\n                \"angel\",\n                \"first\"\n            ],\n            \"postText\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste velit repellendus praesentium deserunt delectus, inventore voluptas similique alias quo quisquam voluptatibus, voluptate harum, obcaecati asperiores ipsum consectetur saepe assumenda sit quasi nobis suscipit earum? Eum facere ipsam, sint odio inventore praesentium! Nemo iure culpa veniam, debitis consequuntur sapiente enim officiis beatae reprehenderit saepe obcaecati ratione quibusdam iste non! Voluptas tempora vero magnam\",\n            \"likes\": [],\n            \"comments\": [],\n            \"postedBy\": {\n                \"name\": \"Angel\",\n                \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                \"userId\": \"padosiUser-162551439602816963f0c82b6\"\n            },\n            \"createdAt\": \"2021-07-05T20:03:25.072Z\"\n        },\n        {\n            \"_id\": \"60e420c55fd3e0ec897623b1\",\n            \"postId\": \"padosiPost-16255634064405d997c712c1c\",\n            \"tags\": [\n                \"sadbhavna\",\n                \"first\",\n                \"hospital\"\n            ],\n            \"postText\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste velit repellendus praesentium deserunt delectus, inventore voluptas similique alias quo quisquam voluptatibus, voluptate harum, obcaecati asperiores ipsum consectetur saepe assumenda sit quasi nobis suscipit earum? Eum facere ipsam, sint odio inventore praesentium! Nemo iure culpa veniam, debitis consequuntur sapiente enim officiis beatae reprehenderit saepe obcaecati ratione quibusdam iste non! Voluptas tempora vero magnam\",\n            \"likes\": [],\n            \"comments\": [],\n            \"postedBy\": {\n                \"name\": \"Sadbhavna\",\n                \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                \"userId\": \"padosiUser-16255633337777dbe8546aaf3\"\n            },\n            \"createdAt\": \"2021-07-06T09:23:26.443Z\"\n        },\n        {\n            \"_id\": \"60e423f95fd3e0ec897623bd\",\n            \"postId\": \"padosiPost-1625564184050da8922643721\",\n            \"tags\": [\n                \"sadbhavna\",\n                \"first\",\n                \"hospital\"\n            ],\n            \"postText\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste velit repellendus praesentium deserunt delectus, inventore voluptas similique alias quo quisquam voluptatibus, voluptate harum, obcaecati asperiores ipsum consectetur saepe assumenda sit quasi nobis suscipit earum? Eum facere ipsam, sint odio inventore praesentium! Nemo iure culpa veniam, debitis consequuntur sapiente enim officiis beatae reprehenderit saepe obcaecati ratione quibusdam iste non! Voluptas tempora vero magnam\",\n            \"likes\": [],\n            \"comments\": [],\n            \"postedBy\": {\n                \"name\": \"Mody\",\n                \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                \"userId\": \"padosiUser-16255641530961c013150ecba\"\n            },\n            \"createdAt\": \"2021-07-06T09:36:24.051Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Like Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwYWRvc2lVc2VyLTE2MjU1MTQzOTYwMjgxNjk2M2YwYzgyYjYiLCJpYXQiOjE2MjU1MTQzOTZ9.IgQ5cAYdgKSSNZxdDGPqhPOd53dekrJPkxsOECEDDF4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"postId\": \"padosiPost-1625515405071d3f650fefe64\",\n    \"userId\": \"60e3619cb9049d57e05bd024\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ApiUrl}}/post/like",
+							"host": [
+								"{{ApiUrl}}"
+							],
+							"path": [
+								"post",
+								"like"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Like Post",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"postId\": \"padosiPost-1625515405071d3f650fefe64\",\n    \"userId\": \"60e3619cb9049d57e05bd024\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiUrl}}/post/like",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"post",
+										"like"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "x-application-identifier",
+									"value": "boilerplate-development"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET,PUT,POST,DELETE,OPTIONS,PATCH"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization, Accept-Language, x-client-id, x-client-secret, x-client-device, x-padosi-auth-token"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "851"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"353-HNNB33wCh9AtwanSFHWtA6mPBUs\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 05 Jul 2021 20:48:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"status\": \"SUCCESS\",\n    \"message\": \"Success\",\n    \"value\": {\n        \"tags\": [\n            \"angel\",\n            \"first\"\n        ],\n        \"likes\": [\n            \"60e3619cb9049d57e05bd024\"\n        ],\n        \"_id\": \"60e3658d3cbd4c5b86ffc0f7\",\n        \"postText\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste velit repellendus praesentium deserunt delectus, inventore voluptas similique alias quo quisquam voluptatibus, voluptate harum, obcaecati asperiores ipsum consectetur saepe assumenda sit quasi nobis suscipit earum? Eum facere ipsam, sint odio inventore praesentium! Nemo iure culpa veniam, debitis consequuntur sapiente enim officiis beatae reprehenderit saepe obcaecati ratione quibusdam iste non! Voluptas tempora vero magnam\",\n        \"postedBy\": \"60e3619cb9049d57e05bd024\",\n        \"postId\": \"padosiPost-1625515405071d3f650fefe64\",\n        \"comments\": [],\n        \"createdAt\": \"2021-07-05T20:03:25.072Z\",\n        \"updatedAt\": \"2021-07-05T20:48:13.889Z\",\n        \"__v\": 0\n    }\n}"
+						},
+						{
+							"name": "Like Post",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"postId\": \"padosiPost-1625515405071d3f650fefe64\",\n    \"userId\": \"60e3619cb9049d57e05bd024\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiUrl}}/post/like",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"post",
+										"like"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "x-application-identifier",
+									"value": "boilerplate-development"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET,PUT,POST,DELETE,OPTIONS,PATCH"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization, Accept-Language, x-client-id, x-client-secret, x-client-device, x-padosi-auth-token"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "96"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"60-8UUV+Wg1lk74biu6QYHgZhnq6K8\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 05 Jul 2021 20:48:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"status\": \"ALREADY_LIKED_BY_USER\",\n    \"value\": {},\n    \"message\": \"Already liked by user\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Unlike post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwYWRvc2lVc2VyLTE2MjU1MTQzOTYwMjgxNjk2M2YwYzgyYjYiLCJpYXQiOjE2MjU1MTQzOTZ9.IgQ5cAYdgKSSNZxdDGPqhPOd53dekrJPkxsOECEDDF4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"postId\": \"padosiPost-1625515405071d3f650fefe64\",\n    \"userId\": \"60e3619cb9049d57e05bd024\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ApiUrl}}/post/unlike",
+							"host": [
+								"{{ApiUrl}}"
+							],
+							"path": [
+								"post",
+								"unlike"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Like Post Copy",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"postId\": \"padosiPost-1625515405071d3f650fefe64\",\n    \"userId\": \"60e3619cb9049d57e05bd024\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiUrl}}/post/unlike",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"post",
+										"unlike"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "x-application-identifier",
+									"value": "boilerplate-development"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET,PUT,POST,DELETE,OPTIONS,PATCH"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization, Accept-Language, x-client-id, x-client-secret, x-client-device, x-padosi-auth-token"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "825"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"339-3GRIVSMovJmUF2laWOoAjxl0tL4\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 05 Jul 2021 20:51:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"status\": \"SUCCESS\",\n    \"message\": \"Success\",\n    \"value\": {\n        \"tags\": [\n            \"angel\",\n            \"first\"\n        ],\n        \"likes\": [],\n        \"_id\": \"60e3658d3cbd4c5b86ffc0f7\",\n        \"postText\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste velit repellendus praesentium deserunt delectus, inventore voluptas similique alias quo quisquam voluptatibus, voluptate harum, obcaecati asperiores ipsum consectetur saepe assumenda sit quasi nobis suscipit earum? Eum facere ipsam, sint odio inventore praesentium! Nemo iure culpa veniam, debitis consequuntur sapiente enim officiis beatae reprehenderit saepe obcaecati ratione quibusdam iste non! Voluptas tempora vero magnam\",\n        \"postedBy\": \"60e3619cb9049d57e05bd024\",\n        \"postId\": \"padosiPost-1625515405071d3f650fefe64\",\n        \"comments\": [],\n        \"createdAt\": \"2021-07-05T20:03:25.072Z\",\n        \"updatedAt\": \"2021-07-05T20:51:25.610Z\",\n        \"__v\": 0\n    }\n}"
+						},
+						{
+							"name": "Like Post Copy",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"postId\": \"padosiPost-1625515405071d3f650fefe64\",\n    \"userId\": \"60e3619cb9049d57e05bd024\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiUrl}}/post/unlike",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"post",
+										"unlike"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "x-application-identifier",
+									"value": "boilerplate-development"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET,PUT,POST,DELETE,OPTIONS,PATCH"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization, Accept-Language, x-client-id, x-client-secret, x-client-device, x-padosi-auth-token"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "100"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"64-tZDAss/+lMRcq9Xe74RG52uYZiA\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 05 Jul 2021 20:51:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"status\": \"ALREADY_UNLIKED_BY_USER\",\n    \"value\": {},\n    \"message\": \"Already unliked by user\"\n}"
+						}
+					]
+				},
+				{
+					"name": "PostComment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwYWRvc2lVc2VyLTE2MjU1MTQzOTYwMjgxNjk2M2YwYzgyYjYiLCJpYXQiOjE2MjU1MTQzOTZ9.IgQ5cAYdgKSSNZxdDGPqhPOd53dekrJPkxsOECEDDF4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"commentText\":\"Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde nostrum minus, ipsum enim architecto eveniet nemo dignissimos voluptate cumque, quia, corporis fuga cum repellendus consectetur. Nostrum obcaecati nam esse quibusdam possimus recusandae deserunt, ex animi. Molestiae distinctio incidunt ipsum voluptate adipisci, cum dolores sequi temporibus hic nam odit alias obcaecati, quae quibusdam excepturi sit recusandae et! Voluptates iusto molestiae ipsa. Excepturi blanditiis sed aut totam modi eum recusandae rerum nostrum non officia explicabo illum architecto deserunt, corporis qui sequi, cum velit at quaerat natus, error magni autem deleniti! Natus a ex iure quis ea porro similique quae, autem reiciendis soluta! \",\n    \"postId\": \"padosiPost-1625515405071d3f650fefe64\",\n    \"userId\": \"60e3619cb9049d57e05bd024\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ApiUrl}}/post/comment",
+							"host": [
+								"{{ApiUrl}}"
+							],
+							"path": [
+								"post",
+								"comment"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PostComment",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"commentText\":\"Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde nostrum minus, ipsum enim architecto eveniet nemo dignissimos voluptate cumque, quia, corporis fuga cum repellendus consectetur. Nostrum obcaecati nam esse quibusdam possimus recusandae deserunt, ex animi. Molestiae distinctio incidunt ipsum voluptate adipisci, cum dolores sequi temporibus hic nam odit alias obcaecati, quae quibusdam excepturi sit recusandae et! Voluptates iusto molestiae ipsa. Excepturi blanditiis sed aut totam modi eum recusandae rerum nostrum non officia explicabo illum architecto deserunt, corporis qui sequi, cum velit at quaerat natus, error magni autem deleniti! Natus a ex iure quis ea porro similique quae, autem reiciendis soluta!\",\n    \"postId\": \"padosiPost-1625515405071d3f650fefe64\",\n    \"userId\": \"60e3619cb9049d57e05bd024\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiUrl}}/post/comment",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"post",
+										"comment"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "x-application-identifier",
+									"value": "boilerplate-development"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET,PUT,POST,DELETE,OPTIONS,PATCH"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization, Accept-Language, x-client-id, x-client-secret, x-client-device, x-padosi-auth-token"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b01-tNws8rVKcsoeXaTswupAZbu4d7E\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 05 Jul 2021 21:23:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"status\": \"SUCCESS\",\n    \"message\": \"Success\",\n    \"value\": {\n        \"tags\": [\n            \"angel\",\n            \"first\"\n        ],\n        \"likes\": [],\n        \"_id\": \"60e3658d3cbd4c5b86ffc0f7\",\n        \"postText\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste velit repellendus praesentium deserunt delectus, inventore voluptas similique alias quo quisquam voluptatibus, voluptate harum, obcaecati asperiores ipsum consectetur saepe assumenda sit quasi nobis suscipit earum? Eum facere ipsam, sint odio inventore praesentium! Nemo iure culpa veniam, debitis consequuntur sapiente enim officiis beatae reprehenderit saepe obcaecati ratione quibusdam iste non! Voluptas tempora vero magnam\",\n        \"postedBy\": {\n            \"_id\": \"60e3619cb9049d57e05bd024\",\n            \"name\": \"Angel\"\n        },\n        \"postId\": \"padosiPost-1625515405071d3f650fefe64\",\n        \"comments\": [\n            {\n                \"_id\": \"60e378123db33372762d03b7\",\n                \"commentText\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde nostrum minus, ipsum enim architecto eveniet nemo dignissimos voluptate cumque, quia, corporis fuga cum repellendus consectetur. Nostrum obcaecati nam esse quibusdam possimus recusandae deserunt, ex animi. Molestiae distinctio incidunt ipsum voluptate adipisci, cum dolores sequi temporibus hic nam odit alias obcaecati, quae quibusdam excepturi sit recusandae et! Voluptates iusto molestiae ipsa. Excepturi blanditiis sed aut totam modi eum recusandae rerum nostrum non officia explicabo illum architecto deserunt, corporis qui sequi, cum velit at quaerat natus, error magni autem deleniti! Natus a ex iure quis ea porro similique quae, autem reiciendis soluta!\",\n                \"postedBy\": {\n                    \"_id\": \"60e3619cb9049d57e05bd024\",\n                    \"name\": \"Angel\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-162551439602816963f0c82b6\"\n                },\n                \"created\": \"2021-07-05T21:22:26.408Z\"\n            },\n            {\n                \"_id\": \"60e3784c3db33372762d03bb\",\n                \"commentText\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde nostrum minus, ipsum enim architecto eveniet nemo dignissimos voluptate cumque, quia, corporis fuga cum repellendus consectetur. Nostrum obcaecati nam esse quibusdam possimus recusandae deserunt, ex animi. Molestiae distinctio incidunt ipsum voluptate adipisci, cum dolores sequi temporibus hic nam odit alias obcaecati, quae quibusdam excepturi sit recusandae et! Voluptates iusto molestiae ipsa. Excepturi blanditiis sed aut totam modi eum recusandae rerum nostrum non officia explicabo illum architecto deserunt, corporis qui sequi, cum velit at quaerat natus, error magni autem deleniti! Natus a ex iure quis ea porro similique quae, autem reiciendis soluta!\",\n                \"postedBy\": {\n                    \"_id\": \"60e3619cb9049d57e05bd024\",\n                    \"name\": \"Angel\",\n                    \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                    \"userId\": \"padosiUser-162551439602816963f0c82b6\"\n                },\n                \"created\": \"2021-07-05T21:23:24.283Z\"\n            }\n        ],\n        \"createdAt\": \"2021-07-05T20:03:25.072Z\",\n        \"updatedAt\": \"2021-07-05T21:23:24.283Z\",\n        \"__v\": 0\n    }\n}"
+						},
+						{
+							"name": "PostComment",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"commentText\":\"Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde nostrum minus, ipsum enim architecto eveniet nemo dignissimos voluptate cumque, quia, corporis fuga cum repellendus consectetur. Nostrum obcaecati nam esse quibusdam possimus recusandae deserunt, ex animi. Molestiae distinctio incidunt ipsum voluptate adipisci, cum dolores sequi temporibus hic nam odit alias obcaecati, quae quibusdam excepturi sit recusandae et! Voluptates iusto molestiae ipsa. Excepturi blanditiis sed aut totam modi eum recusandae rerum nostrum non officia explicabo illum architecto deserunt, corporis qui sequi, cum velit at quaerat natus, error magni autem deleniti! Natus a ex iure quis ea porro similique quae, autem reiciendis soluta! sed aut totam modi eum recusandae rerum nostrum non officia explicabo illum architecto deserunt, corporis qui sequi, cum velit at quaerat natus, error magni autem deleniti! Natus a ex iure quis ea porro similique quae, autem reiciendis soluta!\",\n    \"postId\": \"padosiPost-1625515405071d3f650fefe64\",\n    \"userId\": \"60e3619cb9049d57e05bd024\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiUrl}}/post/comment",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"post",
+										"comment"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "x-application-identifier",
+									"value": "boilerplate-development"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET,PUT,POST,DELETE,OPTIONS,PATCH"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization, Accept-Language, x-client-id, x-client-secret, x-client-device, x-padosi-auth-token"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "109"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6d-UTfzIGJfPMWVTjTP66mra5JHNQ8\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 05 Jul 2021 21:23:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        {\n            \"body\": \"body\",\n            \"params\": \"commentText\",\n            \"msg\": \"Comment should be in range of 30 to 750 character\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Remove Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwYWRvc2lVc2VyLTE2MjU1MTQzOTYwMjgxNjk2M2YwYzgyYjYiLCJpYXQiOjE2MjU1MTQzOTZ9.IgQ5cAYdgKSSNZxdDGPqhPOd53dekrJPkxsOECEDDF4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"commentId\":\"60e378123db33372762d03b7\",\n    \"postId\":\"padosiPost-1625515405071d3f650fefe64\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ApiUrl}}/post/uncomment",
+							"host": [
+								"{{ApiUrl}}"
+							],
+							"path": [
+								"post",
+								"uncomment"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Remove Comment",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"commentId\":\"60e3784c3db33372762d03bb\",\n    \"postId\":\"padosiPost-1625515405071d3f650fefe64\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiUrl}}/post/uncomment",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"post",
+										"uncomment"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "x-application-identifier",
+									"value": "boilerplate-development"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET,PUT,POST,DELETE,OPTIONS,PATCH"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization, Accept-Language, x-client-id, x-client-secret, x-client-device, x-padosi-auth-token"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "94"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5e-ZpkDrdbKbPm3Fg7W57q/BVOdAGI\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 05 Jul 2021 21:44:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"status\": \"USER_COMMENTED_ONCE\",\n    \"message\": \"User Commented once\",\n    \"value\": null\n}"
+						},
+						{
+							"name": "Remove Comment",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"commentId\":\"60e378123db33372762d03b7\",\n    \"postId\":\"padosiPost-1625515405071d3f650fefe64\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiUrl}}/post/uncomment",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"post",
+										"uncomment"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "x-application-identifier",
+									"value": "boilerplate-development"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET,PUT,POST,DELETE,OPTIONS,PATCH"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization, Accept-Language, x-client-id, x-client-secret, x-client-device, x-padosi-auth-token"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "848"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"350-O0EZdxH3VbFy+f0MJCB/79JoQbg\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 05 Jul 2021 21:45:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"status\": \"SUCCESS\",\n    \"message\": \"Success\",\n    \"value\": {\n        \"tags\": [\n            \"angel\",\n            \"first\"\n        ],\n        \"likes\": [],\n        \"_id\": \"60e3658d3cbd4c5b86ffc0f7\",\n        \"postText\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste velit repellendus praesentium deserunt delectus, inventore voluptas similique alias quo quisquam voluptatibus, voluptate harum, obcaecati asperiores ipsum consectetur saepe assumenda sit quasi nobis suscipit earum? Eum facere ipsam, sint odio inventore praesentium! Nemo iure culpa veniam, debitis consequuntur sapiente enim officiis beatae reprehenderit saepe obcaecati ratione quibusdam iste non! Voluptas tempora vero magnam\",\n        \"postedBy\": {\n            \"_id\": \"60e3619cb9049d57e05bd024\",\n            \"name\": \"Angel\"\n        },\n        \"postId\": \"padosiPost-1625515405071d3f650fefe64\",\n        \"comments\": [],\n        \"createdAt\": \"2021-07-05T20:03:25.072Z\",\n        \"updatedAt\": \"2021-07-05T21:45:30.654Z\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get individual post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwYWRvc2lVc2VyLTE2MjU1MTQzOTYwMjgxNjk2M2YwYzgyYjYiLCJpYXQiOjE2MjU1MTQzOTZ9.IgQ5cAYdgKSSNZxdDGPqhPOd53dekrJPkxsOECEDDF4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ApiUrl}}/post/view/padosiPost-1625515405071d3f650fefe64",
+							"host": [
+								"{{ApiUrl}}"
+							],
+							"path": [
+								"post",
+								"view",
+								"padosiPost-1625515405071d3f650fefe64"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search tag",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJwYWRvc2lVc2VyLTE2MjU1OTAyMDY5MThiNmZhNDI1ZmE4NmMiLCJpYXQiOjE2MjU1OTExODh9.hihjdq3Yqgs-YYBQgBoWM1ojjzN-Tj6CyplQjLAMSuE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"tags\":[\"sadbhavna\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ApiUrl}}/post/search/padosiUser-1625590206918b6fa425fa86c?limit=8&page=0",
+							"host": [
+								"{{ApiUrl}}"
+							],
+							"path": [
+								"post",
+								"search",
+								"padosiUser-1625590206918b6fa425fa86c"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "8"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"tags\":[\"sadbhavna\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiUrl}}/post/search/padosiUser-1625590206918b6fa425fa86c?limit=8&page=0",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"post",
+										"search",
+										"padosiUser-1625590206918b6fa425fa86c"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "8"
+										},
+										{
+											"key": "page",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "x-application-identifier",
+									"value": "boilerplate-development"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET,PUT,POST,DELETE,OPTIONS,PATCH"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization, Accept-Language, x-client-id, x-client-secret, x-client-device, x-padosi-auth-token"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6c0-4dsA57bStmdH7R2X27X3kh4eFSc\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Jul 2021 05:18:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"status\": \"SUCCESS\",\n    \"message\": \"Success\",\n    \"value\": [\n        {\n            \"_id\": \"60e420c55fd3e0ec897623b1\",\n            \"postId\": \"padosiPost-16255634064405d997c712c1c\",\n            \"tags\": [\n                \"sadbhavna\",\n                \"first\",\n                \"hospital\"\n            ],\n            \"postText\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste velit repellendus praesentium deserunt delectus, inventore voluptas similique alias quo quisquam voluptatibus, voluptate harum, obcaecati asperiores ipsum consectetur saepe assumenda sit quasi nobis suscipit earum? Eum facere ipsam, sint odio inventore praesentium! Nemo iure culpa veniam, debitis consequuntur sapiente enim officiis beatae reprehenderit saepe obcaecati ratione quibusdam iste non! Voluptas tempora vero magnam\",\n            \"likes\": [],\n            \"comments\": [],\n            \"postedBy\": {\n                \"name\": \"Sadbhavna\",\n                \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                \"userId\": \"padosiUser-16255633337777dbe8546aaf3\"\n            },\n            \"createdAt\": \"2021-07-06T09:23:26.443Z\"\n        },\n        {\n            \"_id\": \"60e423f95fd3e0ec897623bd\",\n            \"postId\": \"padosiPost-1625564184050da8922643721\",\n            \"tags\": [\n                \"sadbhavna\",\n                \"first\",\n                \"hospital\"\n            ],\n            \"postText\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste velit repellendus praesentium deserunt delectus, inventore voluptas similique alias quo quisquam voluptatibus, voluptate harum, obcaecati asperiores ipsum consectetur saepe assumenda sit quasi nobis suscipit earum? Eum facere ipsam, sint odio inventore praesentium! Nemo iure culpa veniam, debitis consequuntur sapiente enim officiis beatae reprehenderit saepe obcaecati ratione quibusdam iste non! Voluptas tempora vero magnam\",\n            \"likes\": [],\n            \"comments\": [],\n            \"postedBy\": {\n                \"name\": \"Mody\",\n                \"picture\": \"https://robohash.org/1PU.png?set=set2&size=150x150\",\n                \"userId\": \"padosiUser-16255641530961c013150ecba\"\n            },\n            \"createdAt\": \"2021-07-06T09:36:24.051Z\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Testing",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{ApiUrl}}",
+					"host": [
+						"{{ApiUrl}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Testing",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ApiUrl}}",
+							"host": [
+								"{{ApiUrl}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET,PUT,POST,DELETE,OPTIONS,PATCH"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization, Accept-Language, x-client-id, x-client-secret, x-client-device, x-padosi-auth-token"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "45"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2d-26ndjieDtXY2141WwW9+wup/iZ4\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 30 Jun 2021 06:05:53 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"msg\": \"Success\",\n    \"body\": \"Server is working \"\n}"
+				}
+			]
+		}
+	]
+}

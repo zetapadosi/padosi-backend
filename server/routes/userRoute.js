@@ -1,17 +1,18 @@
 import { Router } from 'express';
-import { registerUser, requireSignin } from '../controllers/authController';
-import { getUserProfile } from '../controllers/userContoller';
+import { hasAuthorization, registerUser, requireSignin } from '../controllers/authController';
+import {
+	getUserProfile,
+	updateUserBio,
+	updateUserDistance,
+	updateUserLocation,
+	userByID,
+} from '../controllers/userContoller';
+import { inputBioRules, inputDistanceRules, validate } from '../helper/inputValidationHelper';
+
 // import { isLoggedIn } from '../helper/isLoggedInHelper';
 
 const userRouter = new Router();
 
-userRouter.get('/', async (req, res) => {
-	try {
-		return res.status(200).json({ msg: 'Success', body: req.body });
-	} catch (e) {
-		console.error(e.message);
-	}
-});
 
 /*
  REGISTER USER WITH THER ROUTE
@@ -20,6 +21,27 @@ userRouter.get('/', async (req, res) => {
  */
 userRouter.post('/register', registerUser);
 
+
 userRouter.get('/:userId', requireSignin, getUserProfile);
 
+// update the bio of the user
+userRouter.put('/bio/:userId', requireSignin, hasAuthorization, inputBioRules(), validate, updateUserBio);
+
+// update the user distance
+userRouter.put(
+	'/distance/:userId',
+	requireSignin,
+	hasAuthorization,
+	inputDistanceRules(),
+	validate,
+	updateUserDistance,
+);
+
+/**
+ * Added the params route
+ */
+userRouter.get('/:userId', requireSignin, getUserProfile);
+
+
+userRouter.param('userId', userByID);
 export default userRouter;
