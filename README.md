@@ -103,13 +103,12 @@ npm run dev
 
 - ### 🏁 Day 3️⃣ Work
 
-  - [ ] Add search by Tags route and get the posts
-    - [ ] Get all the tags value and search the tags
+  - [x] Add search by Tags route and get the posts
+    - [x] Get all the tags value and search the tags
     - [ ] Unit tesing for the test Route
 
-  - [x] Add the follower and following routes to get the follower and following
+  - [ ] Add the follower and following routes to get the follower and following
     - [ ] Unit testing for the Follower and following
-
 
 ---
 

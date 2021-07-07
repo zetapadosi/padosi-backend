@@ -56,17 +56,57 @@ export const listByUser = async (req, res, next) => {
 		if (req.profile === undefined) {
 			return res.error('USER_IS_NOT_AUTHORIZED');
 		}
-		const { coordinates } = req.profile.location;
+		const { limit, page } = req.query;
+		const { location, distance } = req.profile;
 		const options = {
-			longitude: parseFloat(coordinates[0]),
-			latitude: parseFloat(coordinates[1]),
-			distance: parseFloat(config.dist),
-			limit: parseFloat(config.limit),
-			page: parseFloat(config.page),
+			longitude: parseFloat(location.coordinates[0]),
+			latitude: parseFloat(location.coordinates[1]),
+			distance: parseFloat(distance),
+			limit: parseFloat(limit),
+			page: parseFloat(page),
 		};
 		const getPosts = await User.getPostOfUsers(options);
 
 		return res.ok({ message: 'SUCCESS', value: getPosts });
+	} catch (e) {
+		console.error(e.message);
+		next(e);
+	}
+};
+
+export const searchByTags = async (req, res, next) => {
+	try {
+		if (req.profile === undefined) {
+			return res.error('USER_IS_NOT_AUTHORIZED');
+		}
+		const { limit, page } = req.query;
+		const { location, distance } = req.profile;
+		const { tags } = req.body;
+		const options = {
+			longitude: parseFloat(location.coordinates[0]),
+			latitude: parseFloat(location.coordinates[1]),
+			distance: parseFloat(distance),
+			limit: parseFloat(limit),
+			page: parseFloat(page),
+		};
+
+		const getPosts = await User.getPostOfUsers(options);
+		const newTags = (arr1, arr2) => {
+			let arr3 = [];
+			arr1.forEach((ele1) => {
+				for (let i = 0; i < ele1.tags.length; i++) {
+					for (let j = 0; j < arr2.length; j++) {
+						if (arr2[j] == ele1.tags[i]) {
+							arr3.push(ele1);
+						}
+					}
+				}
+			});
+			return arr3;
+		};
+		const postTags = newTags(getPosts, tags);
+
+		return res.ok({ message: 'SUCCESS', value: postTags });
 	} catch (e) {
 		console.error(e.message);
 		next(e);

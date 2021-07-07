@@ -1,5 +1,8 @@
 import { Schema, model } from 'mongoose';
 import { generateRandomSring } from '../helper/encriptionHelper';
+import config from '../../config/config';
+
+const convertToMeter = (value) => value * 1000;
 
 const userSchema = new Schema(
 	{
@@ -7,11 +10,13 @@ const userSchema = new Schema(
 		name: { type: String },
 		email: { type: String },
 		picture: { type: String },
+		bio: { type: String, default: null },
 		userFrom: { type: String, default: null },
 		location: {
 			type: { type: String, default: 'Point' },
 			coordinates: { type: [Number], default: [0, 0] },
 		},
+		distance: { type: Number, default: convertToMeter(5) },
 		following: [{ type: Schema.ObjectId, ref: 'User' }],
 		followers: [{ type: Schema.ObjectId, ref: 'User' }],
 	},
@@ -54,7 +59,7 @@ class User {
 					$geoNear: {
 						near: { type: 'Point', coordinates: [options.longitude, options.latitude] },
 						distanceField: 'dist.calculated',
-						maxDistance: options.distance,
+						maxDistance: options.distance || parseFloat(config.dist),
 						spherical: true,
 					},
 				},
@@ -95,15 +100,9 @@ class User {
 						createdAt: '$posts.createdAt',
 					},
 				},
-				{
-					$sort: { createdAt: 1 },
-				},
-				{
-					$skip: options.page || 0 > 0 ? (options.page || 0 - 1) * options.limit || 0 : 0,
-				},
-				{
-					$limit: options.limit || 8,
-				},
+				{ $sort: { createdAt: 1 } },
+				{ $skip: options.page || config.page > 0 ? (options.page || config.page - 1) * options.limit || config.limit : 0 },
+				{ $limit: options.limit || config.limit },
 			]);
 			return data;
 		} catch (e) {
