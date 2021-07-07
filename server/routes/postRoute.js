@@ -8,6 +8,7 @@ import {
 	likePost,
 	listByUser,
 	postByID,
+	searchByTags,
 	testPost,
 	uncommentPost,
 	unlikePost,
@@ -15,12 +16,10 @@ import {
 import { userByID } from '../controllers/userContoller';
 import { inputCommentRules, inputPostRules, validate } from '../helper/inputValidationHelper';
 
-
 const postRouter = new Router();
 
 // Test Route
 postRouter.get('/', requireSignin, testPost);
-
 
 // Get individual post
 postRouter.get('/view/:postId', requireSignin, getSinglePost);
@@ -38,6 +37,7 @@ postRouter.put('/unlike', requireSignin, unlikePost);
 postRouter.put('/comment', requireSignin, inputCommentRules(), validate, commentPost);
 postRouter.put('/uncomment', requireSignin, uncommentPost);
 
+postRouter.post('/search/:userId', requireSignin, searchByTags);
 
 // Params route
 postRouter.param('userId', userByID);
