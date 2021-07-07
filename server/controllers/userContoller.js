@@ -51,16 +51,3 @@ export const updateUserDistance = async (req, res, next) => {
 		next(e);
 	}
 };
-
-export const getUserProfile = async (req, res, next) => {
-	try {
-		const options = {
-			// _id,
-		};
-		const userProfile = await User.getUserData(options);
-		return res.ok({ message: 'SUCCESS', value: userProfile });
-	} catch (e) {
-		console.error(e.message);
-		next(e);
-	}
-};
