@@ -45,6 +45,7 @@ export const unauthorisedErrors = (err, req, res, next) => {
 		res.status(401).json({ error: err.name + ': ' + err.message });
 	} else if (err) {
 		res.status(400).json({ error: err.name + ': ' + err.message });
-		console.error(err);
+		console.log(err);
 	}
+	next();
 };
