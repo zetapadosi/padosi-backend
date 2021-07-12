@@ -100,7 +100,7 @@ class User {
 						createdAt: '$posts.createdAt',
 					},
 				},
-				{ $sort: { createdAt: 1 } },
+				{ $sort: { createdAt: -1 } },
 				{ $skip: options.page || config.page > 0 ? (options.page || config.page - 1) * options.limit || config.limit : 0 },
 				{ $limit: options.limit || config.limit },
 			]);

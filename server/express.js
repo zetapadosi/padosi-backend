@@ -14,11 +14,15 @@ import { errHandler, headerFunction, notFound, unauthorisedErrors } from './midd
 import apiRoutes from './routes/apiRoutes';
 import { extendedRequestMiddleware } from './middleware/extendedRequestMiddleware';
 
-const { availableLocals, defaultLanguage, projectRoot } = config;
+const { availableLocals, defaultLanguage, projectRoot, port } = config;
 
 const app = express();
 
-i18n.configure({ locales: availableLocals, directory: path.join(projectRoot, 'server', 'locals'), defaultLocale: defaultLanguage });
+i18n.configure({
+	locales: availableLocals,
+	directory: path.join(projectRoot, 'server', 'locals'),
+	defaultLocale: defaultLanguage,
+});
 
 import './model';
 // Middleware
