@@ -14,7 +14,7 @@ import { errHandler, headerFunction, notFound, unauthorisedErrors } from './midd
 import apiRoutes from './routes/apiRoutes';
 import { extendedRequestMiddleware } from './middleware/extendedRequestMiddleware';
 
-const { availableLocals, defaultLanguage, projectRoot } = config;
+const { availableLocals, defaultLanguage, projectRoot, port } = config;
 
 const app = express();
 
