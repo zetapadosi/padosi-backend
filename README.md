@@ -93,6 +93,9 @@ npm run dev
 
   - [x] Create the post method for the comment on the post with multiple users
     - [x] Add the input validation to the inputs as comment length.
+    - [x] The length of the comment is between 30 to 750 character.
+    - [x] The length of the single tage is between 3 to 100 character.
+    - [x] The length of the Post is between 30 to 2650 character.
     - [ ] Unit testing of comments
 
   - [x] Create the post method for the like and unlike the post and comments as well
@@ -114,13 +117,14 @@ npm run dev
 
   - [x] Add the update the distance and bio endpoint of the users
     - [x] Get the details of the end points and update the values
+    - [x] The default distance of the user is 5 Km and can be chaged at distance between 1 to 10 Km
     - [ ] Unit Testing for the distance and bio update
 
 
 ---
-
+<!--
 ### 🥇 The Endpoints and the output of the endpoints
 
 - #### [Register and Signup](lib/registerSignup.md)
 
-- #### [Creat Add a Post](lib/addPost.md)
+- #### [Creat Add a Post](lib/addPost.md) -->
