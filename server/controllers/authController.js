@@ -39,6 +39,7 @@ export const registerUser = async (req, res, next) => {
 			jwtSecret,
 		);
 		const userWithToken = { user: user, token: token };
+		// console.log(userWithToken);
 		res.cookie('t', token, { expire: new Date() + 9999 });
 		return res.ok({ message: 'REGISTRATION_SUCCESS', value: userWithToken });
 	} catch (e) {
