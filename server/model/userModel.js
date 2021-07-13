@@ -12,6 +12,7 @@ const userSchema = new Schema(
 		picture: { type: String },
 		bio: { type: String, default: null },
 		userFrom: { type: String, default: null },
+		area: { type: String },
 		location: {
 			type: { type: String, default: 'Point' },
 			coordinates: { type: [Number], default: [0, 0] },

@@ -20,7 +20,7 @@ export const testAuth = async (req, res, next) => {
 
 export const registerUser = async (req, res, next) => {
 	try {
-		const { name, email, picture, latitude, longitude, userFrom } = req.body;
+		const { name, email, picture, latitude, longitude, userFrom, area } = req.body;
 		let newUser = await User.findOne({ email: `${email}`, userFrom: `${userFrom}` });
 		if (newUser) {
 			return res.error('USER_ALREADY_REGISTERED');
@@ -31,6 +31,7 @@ export const registerUser = async (req, res, next) => {
 			picture,
 			location: { coordinates: [parseFloat(longitude), parseFloat(latitude)] },
 			userFrom,
+			area,
 		});
 		const token = jwt.sign(
 			{

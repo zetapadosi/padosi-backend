@@ -1,4 +1,5 @@
 import User from '../model/userModel';
+import Post from '../model/postModel';
 
 export const userByID = async (req, res, next, id) => {
 	try {
@@ -16,11 +17,12 @@ export const userByID = async (req, res, next, id) => {
 
 export const getUserProfile = async (req, res, next) => {
 	try {
-		const options = {
-			// _id,
-		};
-		const userProfile = await User.getUserData(options);
-		return res.ok({ message: 'SUCCESS', value: userProfile });
+		const userProfile = await User.findOne({ userId: req.profile.userId });
+		const userPost = await Post.find({ postedBy: userProfile._id })
+			.populate('postedBy', 'name _id userId picture')
+			.exec();
+
+		return res.ok({ message: 'SUCCESS', value: { userProfile, userPost } });
 	} catch (e) {
 		console.error('GetUserProfile -> ', e.message);
 		next(e);

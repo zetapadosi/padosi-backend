@@ -116,10 +116,10 @@ export const searchByTags = async (req, res, next) => {
 export const likePost = async (req, res, next) => {
 	try {
 		const { userId, postId } = req.body;
-		const isLiked = await Post.findOne({ likes: userId });
-		if (isLiked) {
-			return res.ok({ message: 'ALREADY_LIKED_BY_USER', value: isLiked });
-		}
+		// const isLiked = await Post.findOne({ likes: userId });
+		// if (isLiked) {
+		// 	return res.ok({ message: 'ALREADY_LIKED_BY_USER', value: isLiked });
+		// }
 		const addlike = await Post.findOneAndUpdate({ postId: `${postId}` }, { $push: { likes: userId } }, { new: true });
 		return res.ok({ message: 'SUCCESS', value: addlike });
 	} catch (e) {
@@ -131,10 +131,10 @@ export const likePost = async (req, res, next) => {
 export const unlikePost = async (req, res, next) => {
 	try {
 		const { userId, postId } = req.body;
-		const isUnlike = await Post.findOne({ likes: userId });
-		if (isUnlike === null) {
-			return res.ok({ message: 'ALREADY_UNLIKED_BY_USER', value: isUnlike });
-		}
+		// const isUnlike = await Post.findOne({ likes: userId });
+		// if (isUnlike === null) {
+		// 	return res.ok({ message: 'ALREADY_UNLIKED_BY_USER', value: isUnlike });
+		// }
 		const unlike = await Post.findOneAndUpdate({ postId: `${postId}` }, { $pull: { likes: userId } }, { new: true });
 		return res.ok({ message: 'SUCCESS', value: unlike });
 	} catch (e) {
@@ -150,11 +150,6 @@ export const commentPost = async (req, res, next) => {
 			commentText: commentText,
 			postedBy: userId,
 		};
-		const isCommented = await Post.findOne({ 'comments.postedBy': userId });
-		if (isCommented) {
-			return res.ok({ message: 'USER_COMMENTED_ONCE', value: isCommented });
-		}
-		console.log(isCommented);
 		const updatedPost = await Post.findOneAndUpdate({ postId: postId }, { $push: { comments: comment } }, { new: true })
 			.populate('comments.postedBy', '_id name userId picture')
 			.populate('postedBy', '_id name')
