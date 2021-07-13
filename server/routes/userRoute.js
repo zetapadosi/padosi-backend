@@ -13,14 +13,12 @@ import { inputBioRules, inputDistanceRules, validate } from '../helper/inputVali
 
 const userRouter = new Router();
 
-
 /*
  REGISTER USER WITH THER ROUTE
  api route
   /api/user/register
  */
 userRouter.post('/register', registerUser);
-
 
 userRouter.get('/:userId', requireSignin, getUserProfile);
 
@@ -36,12 +34,6 @@ userRouter.put(
 	validate,
 	updateUserDistance,
 );
-
-/**
- * Added the params route
- */
-userRouter.get('/:userId', requireSignin, getUserProfile);
-
 
 userRouter.param('userId', userByID);
 export default userRouter;

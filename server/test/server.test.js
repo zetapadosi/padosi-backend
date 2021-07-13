@@ -1,11 +1,12 @@
-import { expect } from 'chai';
+import chai, { expect } from 'chai';
 import app from '../express';
-import request from 'supertest';
+import chaiHttp from 'chai-http';
+chai.use(chaiHttp);
 
-const newRequest = request(app);
+const newReq = chai.request(app);
 describe('Testing the app', () => {
 	it('Checking the ping route', async () => {
-		const res = await newRequest.get('/ping');
+		const res = await newReq.get('/ping');
 		expect(res.body.msg).to.be.equal('Success');
 		expect(res.body.data).to.be.equal('Pong');
 		expect(res.status).to.be.equal(200);
