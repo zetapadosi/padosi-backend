@@ -17,12 +17,21 @@ export const userByID = async (req, res, next, id) => {
 
 export const getUserProfile = async (req, res, next) => {
 	try {
-		const userProfile = await User.findOne({ userId: req.profile.userId });
-		const userPost = await Post.find({ postedBy: userProfile._id })
-			.populate('postedBy', 'name _id userId picture')
-			.exec();
-
-		return res.ok({ message: 'SUCCESS', value: { userProfile, userPost } });
+		const { userId, _id } = req.session.user;
+		const user = await User.findOne({ userId: userId });
+		const userPost = await Post.find({ postedBy: _id }).populate('postedBy', 'name _id userId picture').exec();
+		return res.ok({ message: 'SUCCESS', value: { user, userPost } });
+	} catch (e) {
+		console.error('GetUserProfile -> ', e.message);
+		next(e);
+	}
+};
+export const otheUserProfile = async (req, res, next) => {
+	try {
+		const { userId, _id } = req.profile;
+		const user = await User.findOne({ userId: userId });
+		const userPost = await Post.find({ postedBy: _id }).populate('postedBy', 'name _id userId picture').exec();
+		return res.ok({ message: 'SUCCESS', value: { user, userPost } });
 	} catch (e) {
 		console.error('GetUserProfile -> ', e.message);
 		next(e);
@@ -32,7 +41,7 @@ export const getUserProfile = async (req, res, next) => {
 export const updateUserBio = async (req, res, next) => {
 	try {
 		const { bioText } = req.body;
-		const { userId } = req.profile;
+		const { userId } = req.session.user;
 		const userData = await User.findOneAndUpdate({ userId: userId }, { bio: bioText }, { new: true });
 		return res.ok({ message: 'SUCCESS', value: userData });
 	} catch (e) {
@@ -44,7 +53,7 @@ export const updateUserBio = async (req, res, next) => {
 export const updateUserDistance = async (req, res, next) => {
 	try {
 		const { distance } = req.body;
-		const { userId } = req.profile;
+		const { userId } = req.session.user;
 		const newDist = distance * 1000;
 		const userData = await User.findOneAndUpdate({ userId: userId }, { distance: newDist }, { new: true });
 		return res.ok({ message: 'SUCCESS', value: userData });

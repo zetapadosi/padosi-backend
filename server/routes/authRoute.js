@@ -1,5 +1,6 @@
 import { Router } from 'express';
-import {  sigin, signout, testAuth } from '../controllers/authController';
+import { sigin, signout, testAuth } from '../controllers/authController';
+import { sessionCheck } from '../helper/sessionHelper';
 
 const authRoute = new Router();
 
@@ -11,11 +12,11 @@ authRoute.get('/test', testAuth);
 /*
  userlogin route
  */
-authRoute.post('/login',sigin)
+authRoute.post('/login', sigin);
 
 /*
  user Logout route
  */
-authRoute.get('/logout',signout)
+authRoute.get('/logout', signout);
 
 export default authRoute;

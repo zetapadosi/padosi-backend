@@ -23,7 +23,7 @@ export const registerUser = async (req, res, next) => {
 		const { name, email, picture, latitude, longitude, userFrom, area } = req.body;
 		let newUser = await User.findOne({ email: `${email}`, userFrom: `${userFrom}` });
 		if (newUser) {
-			return res.error('USER_ALREADY_REGISTERED');
+			return res.error({ message: 'USER_ALREADY_REGISTERED' });
 		}
 		const user = await User.create({
 			name,
@@ -33,16 +33,14 @@ export const registerUser = async (req, res, next) => {
 			userFrom,
 			area,
 		});
-		const token = jwt.sign(
-			{
-				userId: user.userId,
-			},
-			jwtSecret,
-		);
-		const userWithToken = { user: user, token: token };
-		// console.log(userWithToken);
-		res.cookie('t', token, { expire: new Date() + 9999 });
-		return res.ok({ message: 'REGISTRATION_SUCCESS', value: userWithToken });
+
+		req.session.user = {
+			name: user.name,
+			userFrom: user.userFrom,
+			userId: user.userId,
+			_id: user._id,
+		};
+		return res.status(201).ok({ message: 'REGISTRATION_SUCCESS', value: user });
 	} catch (e) {
 		console.error(e.message);
 		next(e);
@@ -56,15 +54,13 @@ export const sigin = async (req, res, next) => {
 		if (!user) {
 			return res.error('USER_NOT_FOUND');
 		}
-		const token = jwt.sign(
-			{
-				userId: user.userId,
-			},
-			jwtSecret,
-		);
-		const userWithToken = { user: user, token: token };
-		res.cookie('t', token, { expire: new Date() + 9999 });
-		return res.ok({ message: 'SIGNED_SUCCESS', value: userWithToken });
+		req.session.user = {
+			name: user.name,
+			userFrom: user.userFrom,
+			userId: user.userId,
+			_id: user._id,
+		};
+		return res.ok({ message: 'SIGNED_SUCCESS', value: user });
 	} catch (e) {
 		console.error(e.message);
 		next(e);
@@ -73,7 +69,7 @@ export const sigin = async (req, res, next) => {
 
 export const signout = async (req, res, next) => {
 	try {
-		res.clearCookie('t');
+		req.session.destroy();
 		return res.ok('SIGNED_OUT_SUCCESS');
 	} catch (e) {
 		console.error(e.message);
