@@ -13,7 +13,7 @@ import config from '../config/config';
 import { errHandler, headerFunction, notFound, unauthorisedErrors } from './middleware/errorMiddleware';
 import apiRoutes from './routes/apiRoutes';
 import { extendedRequestMiddleware } from './middleware/extendedRequestMiddleware';
-import { sessionCler, sessionConfig } from './helper/sessionHelper';
+import { sessionCheck, sessionCler, sessionConfig } from './helper/sessionHelper';
 
 const { availableLocals, defaultLanguage, projectRoot, port } = config;
 
@@ -38,7 +38,6 @@ app.use(
 		secret: sessionConfig.secret,
 		resave: sessionConfig.resave,
 		saveUninitialized: sessionConfig.saveUninitialized,
-		cookie: sessionConfig.cookie,
 	}),
 );
 app.use(cookieParser());
@@ -54,7 +53,14 @@ app.all('*', headerFunction);
 // Test Route
 app.get('/ping', async (req, res, next) => {
 	try {
-		return res.status(200).json({ msg: 'Success', status: 200, data: 'Pong' });
+		return res.status(200).json({
+			msg: 'Success',
+			status: 200,
+			data: 'Pong',
+			session: req.session,
+			cookies: req.cookies,
+			sessionId: req.session.id,
+		});
 	} catch (e) {
 		console.error(e.message);
 		next(e);
