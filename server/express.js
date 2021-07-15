@@ -15,7 +15,7 @@ import apiRoutes from './routes/apiRoutes';
 import { extendedRequestMiddleware } from './middleware/extendedRequestMiddleware';
 import { sessionCler, sessionConfig } from './helper/sessionHelper';
 
-const { availableLocals, defaultLanguage, projectRoot } = config;
+const { availableLocals, defaultLanguage, projectRoot, port } = config;
 
 const app = express();
 

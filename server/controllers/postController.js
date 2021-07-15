@@ -155,7 +155,6 @@ export const commentPost = async (req, res, next) => {
 			commentText: commentText,
 			postedBy: _id,
 		};
-
 		const updatedPost = await Post.findOneAndUpdate({ postId: postId }, { $push: { comments: comment } }, { new: true })
 			.populate('comments.postedBy', '_id name userId picture')
 			.populate('postedBy', '_id name')
