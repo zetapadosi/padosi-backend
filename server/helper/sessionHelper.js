@@ -11,20 +11,22 @@ export const sessionConfig = {
 	secret: sessionSecret,
 	resave: false,
 	saveUninitialized: true,
-	cookies: { maxAge: oneDay },
+	cookies: { maxAge: oneDay, sameSite: true, httpOnly: true },
 };
 
 export const sessionCler = (req, res, next) => {
-	if (req.cookies && !req.session.user) {
-		res.clearCookie();
+	if (req.cookies.Padosi_Session && !req.session.user) {
+		res.clearCookie('Padosi_Session');
 	}
 	next();
 };
 
 export const sessionCheck = (req, res, next) => {
 	const { cookies, session } = req;
-	// console.log(Object.values(cookies)[0].includes(session.id));
-	if (Object.values(cookies)[0].includes(session.id) && session.user) {
+	console.log(cookies);
+	// console.log(req.session);
+	console.log(cookies.Padosi_Session.includes(session.id));
+	if (cookies.Padosi_Session.includes(session.id) && session.user) {
 		next();
 	} else return res.status(403).error('USER_IS_NOT_AUTHORIZED');
 };

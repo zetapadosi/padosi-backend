@@ -27,15 +27,18 @@ i18n.configure({
 
 import './model';
 // Middleware
+
+app.set('trust proxy', 1);
 app.use(i18n.init);
-// app.use(cookieParser());
+app.use(cookieParser());
 app.use(
 	session({
-		name: sessionConfig.key,
+		name: 'Padosi_Session',
+		key: sessionConfig.key,
 		secret: sessionConfig.secret,
 		resave: sessionConfig.resave,
 		saveUninitialized: sessionConfig.saveUninitialized,
-		cookie: sessionConfig.cookies,
+		// cookie: sessionConfig.cookies,
 	}),
 );
 app.use(express.json());
