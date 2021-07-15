@@ -1,11 +1,7 @@
 import { Router } from 'express';
 import { registerUser } from '../controllers/authController';
 import {
-<<<<<<< HEAD
-	getUserDeletedPost,
-=======
 	getRemovedPost,
->>>>>>> 938b67459cb8490e9139b5d9e3c15b4e8334a320
 	getUserProfile,
 	otheUserProfile,
 	updateUserBio,
