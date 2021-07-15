@@ -38,6 +38,7 @@ app.use(
 		secret: sessionConfig.secret,
 		resave: sessionConfig.resave,
 		saveUninitialized: sessionConfig.saveUninitialized,
+		cookie: sessionConfig.cookies,
 	}),
 );
 app.use(cookieParser());
@@ -57,9 +58,9 @@ app.get('/ping', async (req, res, next) => {
 			msg: 'Success',
 			status: 200,
 			data: 'Pong',
-			session: req.session,
-			cookies: req.cookies,
-			sessionId: req.session.id,
+			// session: req.session,
+			// cookies: req.cookies,
+			// sessionId: req.session.id,
 		});
 	} catch (e) {
 		console.error(e.message);

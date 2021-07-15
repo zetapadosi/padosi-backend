@@ -11,6 +11,7 @@ export const sessionConfig = {
 	secret: sessionSecret,
 	resave: false,
 	saveUninitialized: true,
+	cookies: { maxAge: oneDay },
 };
 
 export const sessionCler = (req, res, next) => {
@@ -22,10 +23,9 @@ export const sessionCler = (req, res, next) => {
 
 export const sessionCheck = (req, res, next) => {
 	const { cookies, session } = req;
-	if ('PadosiToken' in cookies) {
-		if (cookies.PadosiToken === session.token && session.user) {
-			next();
-		} else return res.status(403).error('USER_IS_NOT_AUTHORIZED');
+	// console.log(Object.values(cookies)[0].includes(session.id));
+	if (Object.values(cookies)[0].includes(session.id) && session.user) {
+		next();
 	} else return res.status(403).error('USER_IS_NOT_AUTHORIZED');
 };
 // if (!req.session.user && !res.cookie.usedKey) {
