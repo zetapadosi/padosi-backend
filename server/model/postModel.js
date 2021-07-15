@@ -8,6 +8,7 @@ const postSchema = new Schema(
 		tags: [{ type: String, index: true }],
 		postText: { type: String },
 		likes: [{ type: Schema.ObjectId, ref: 'User' }],
+		isDeleted: { type: Boolean, default: false },
 		comments: [
 			{
 				commentText: String,

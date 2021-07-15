@@ -39,11 +39,11 @@ export const getSinglePost = async (req, res, next) => {
 
 export const createPost = async (req, res, next) => {
 	try {
-		const { profile } = req;
+		const { _id } = req.session.user;
 		const { tags, postText } = req.body;
-		const newPost = new Post({ tags: tags, postText: postText, postedBy: profile });
+		const newPost = new Post({ tags: tags, postText: postText, postedBy: _id });
 		await newPost.save();
-		const viewPost = await Post.find({ _id: newPost._id }).populate('postedBy', '_id userId picture userName');
+		const viewPost = await Post.find({ _id: newPost._id }).populate('postedBy', '_id userId picture name');
 		return res.ok({ message: 'SUCCESS', value: viewPost });
 	} catch (e) {
 		console.error(e.message);
@@ -53,11 +53,10 @@ export const createPost = async (req, res, next) => {
 
 export const listByUser = async (req, res, next) => {
 	try {
-		if (req.profile === undefined) {
-			return res.error('USER_IS_NOT_AUTHORIZED');
-		}
 		const { limit, page } = req.query;
-		const { location, distance } = req.profile;
+		const { userId } = req.session.user;
+		const user = await User.findOne({ userId: userId });
+		const { location, distance } = user;
 		const options = {
 			longitude: parseFloat(location.coordinates[0]),
 			latitude: parseFloat(location.coordinates[1]),
@@ -76,11 +75,10 @@ export const listByUser = async (req, res, next) => {
 
 export const searchByTags = async (req, res, next) => {
 	try {
-		if (req.profile === undefined) {
-			return res.error('USER_IS_NOT_AUTHORIZED');
-		}
 		const { limit, page } = req.query;
-		const { location, distance } = req.profile;
+		const { userId } = req.session.user;
+		const user = await User.findOne({ userId: userId });
+		const { location, distance } = user;
 		const { tags } = req.body;
 		const options = {
 			longitude: parseFloat(location.coordinates[0]),
@@ -115,12 +113,15 @@ export const searchByTags = async (req, res, next) => {
 
 export const likePost = async (req, res, next) => {
 	try {
-		const { userId, postId } = req.body;
-		// const isLiked = await Post.findOne({ likes: userId });
-		// if (isLiked) {
-		// 	return res.ok({ message: 'ALREADY_LIKED_BY_USER', value: isLiked });
-		// }
-		const addlike = await Post.findOneAndUpdate({ postId: `${postId}` }, { $push: { likes: userId } }, { new: true });
+		const { postId } = req.body;
+		const { _id } = req.session.user;
+		const isPostLiked = await Post.findOne({ postId: postId }).exec();
+		isPostLiked.likes.forEach((item) => {
+			if (item == _id) {
+				return res.ok('ALREADY_LIKED_BY_USER');
+			}
+		});
+		const addlike = await Post.findOneAndUpdate({ postId: `${postId}` }, { $push: { likes: _id } }, { new: true });
 		return res.ok({ message: 'SUCCESS', value: addlike });
 	} catch (e) {
 		console.error(e.message);
@@ -130,12 +131,15 @@ export const likePost = async (req, res, next) => {
 
 export const unlikePost = async (req, res, next) => {
 	try {
-		const { userId, postId } = req.body;
-		// const isUnlike = await Post.findOne({ likes: userId });
-		// if (isUnlike === null) {
-		// 	return res.ok({ message: 'ALREADY_UNLIKED_BY_USER', value: isUnlike });
-		// }
-		const unlike = await Post.findOneAndUpdate({ postId: `${postId}` }, { $pull: { likes: userId } }, { new: true });
+		const { postId } = req.body;
+		const { _id } = req.session.user;
+		const isPostLiked = await Post.findOne({ postId: postId }).exec();
+		isPostLiked.likes.forEach((item) => {
+			if (item != _id) {
+				return res.ok('ALREADY_UNLIKED_BY_USER');
+			}
+		});
+		const unlike = await Post.findOneAndUpdate({ postId: `${postId}` }, { $pull: { likes: _id } }, { new: true });
 		return res.ok({ message: 'SUCCESS', value: unlike });
 	} catch (e) {
 		console.error(e.message);
@@ -145,11 +149,13 @@ export const unlikePost = async (req, res, next) => {
 
 export const commentPost = async (req, res, next) => {
 	try {
-		const { commentText, postId, userId } = req.body;
+		const { commentText, postId } = req.body;
+		const { _id } = req.session.user;
 		const comment = {
 			commentText: commentText,
-			postedBy: userId,
+			postedBy: _id,
 		};
+
 		const updatedPost = await Post.findOneAndUpdate({ postId: postId }, { $push: { comments: comment } }, { new: true })
 			.populate('comments.postedBy', '_id name userId picture')
 			.populate('postedBy', '_id name')
@@ -178,6 +184,20 @@ export const uncommentPost = async (req, res, next) => {
 			.populate('postedBy', '_id name')
 			.exec();
 		return res.ok({ message: 'SUCCESS', value: updatedComment });
+	} catch (e) {
+		console.error(e.message);
+		next(e);
+	}
+};
+
+export const removePost = async (req, res, next) => {
+	try {
+		const post = req.post;
+		const { _id } = req.session.user;
+		if (_id === post.postedby._id) {
+			await Post.findOneAndRemove({ postedBy: post.postedby._id });
+		}
+		return res.ok({ message: 'REMOVE_POST' });
 	} catch (e) {
 		console.error(e.message);
 		next(e);

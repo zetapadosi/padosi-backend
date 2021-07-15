@@ -54,7 +54,7 @@ app.all('*', headerFunction);
 // Test Route
 app.get('/ping', async (req, res, next) => {
 	try {
-		return res.status(200).json({ msg: 'Success', status: 200, data: 'Pong', session: req.session });
+		return res.status(200).json({ msg: 'Success', status: 200, data: 'Pong' });
 	} catch (e) {
 		console.error(e.message);
 		next(e);

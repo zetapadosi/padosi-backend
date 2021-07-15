@@ -8,6 +8,7 @@ import {
 	likePost,
 	listByUser,
 	postByID,
+	removePost,
 	searchByTags,
 	testPost,
 	uncommentPost,
@@ -15,29 +16,32 @@ import {
 } from '../controllers/postController';
 import { userByID } from '../controllers/userContoller';
 import { inputCommentRules, inputPostRules, validate } from '../helper/inputValidationHelper';
+import { sessionCheck } from '../helper/sessionHelper';
 
 const postRouter = new Router();
 
 // Test Route
-postRouter.get('/', requireSignin, testPost);
+postRouter.get('/', sessionCheck, testPost);
 
+postRouter.post('/create/', sessionCheck, inputPostRules(), validate, createPost);
 // Get individual post
-postRouter.get('/view/:postId', requireSignin, getSinglePost);
+postRouter.get('/view/:postId', sessionCheck, getSinglePost);
 
 // create new post
-postRouter.post('/create/:userId', requireSignin, inputPostRules(), validate, createPost);
 
-postRouter.get('/wall/:userId', requireSignin, listByUser);
+postRouter.get('/wall', sessionCheck, listByUser);
 
 // like and dislike the post
-postRouter.put('/like', requireSignin, likePost);
-postRouter.put('/unlike', requireSignin, unlikePost);
+postRouter.put('/like', sessionCheck, likePost);
+postRouter.put('/unlike', sessionCheck, unlikePost);
 
 // Comment and un comment
-postRouter.put('/comment', requireSignin, inputCommentRules(), validate, commentPost);
-postRouter.put('/uncomment', requireSignin, uncommentPost);
+postRouter.put('/comment', sessionCheck, inputCommentRules(), validate, commentPost);
+postRouter.put('/uncomment', sessionCheck, uncommentPost);
 
-postRouter.post('/search/:userId', requireSignin, searchByTags);
+postRouter.post('/search', sessionCheck, searchByTags);
+
+postRouter.delete('/remove/:postId', sessionCheck, removePost);
 
 // Params route
 postRouter.param('userId', userByID);
