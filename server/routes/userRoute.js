@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { registerUser } from '../controllers/authController';
 import {
+	getUserDeletedPost,
 	getUserProfile,
 	otheUserProfile,
 	updateUserBio,
@@ -9,8 +10,6 @@ import {
 } from '../controllers/userContoller';
 import { inputBioRules, inputDistanceRules, validate } from '../helper/inputValidationHelper';
 import { sessionCheck } from '../helper/sessionHelper';
-
-// import { isLoggedIn } from '../helper/isLoggedInHelper';
 
 const userRouter = new Router();
 
@@ -24,6 +23,8 @@ userRouter.post('/register', registerUser);
 userRouter.get('/', sessionCheck, getUserProfile);
 
 userRouter.get('/:userId', sessionCheck, otheUserProfile);
+
+// userRouter.get('/deletedPost', sessionCheck, getUserDeletedPost);
 
 // update the bio of the user
 userRouter.put('/bio', sessionCheck, inputBioRules(), validate, updateUserBio);

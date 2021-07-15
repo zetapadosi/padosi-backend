@@ -69,7 +69,7 @@ class User {
 					$lookup: {
 						from: 'posts',
 						let: { userId: '$_id' },
-						pipeline: [{ $match: { $expr: { $eq: ['$postedBy', '$$userId'] } } }],
+						pipeline: [{ $match: { $expr: { $and: [{ $eq: ['$postedBy', '$$userId'] }, { $eq: ['$isDeleted', false] }] } } }],
 						as: 'posts',
 					},
 				},
@@ -93,6 +93,7 @@ class User {
 						postText: '$posts.postText',
 						likes: '$posts.likes',
 						comments: '$posts.comments',
+						isDeleted: '$posts.isDeleted',
 						postedBy: {
 							name: '$userData.name',
 							picture: '$userData.picture',
