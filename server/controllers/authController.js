@@ -3,9 +3,12 @@ import expressJwt from 'express-jwt';
 
 import User from '../model/userModel';
 import config from '../../config/config';
+import { generateRandomSring } from '../helper/encriptionHelper';
+import { oneDay } from '../helper/sessionHelper';
 
 const { jwtSecret } = config;
 
+const randomToken = generateRandomSring(34);
 export const testAuth = async (req, res, next) => {
 	try {
 		const testData = {
