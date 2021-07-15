@@ -13,7 +13,7 @@ import config from '../config/config';
 import { errHandler, headerFunction, notFound, unauthorisedErrors } from './middleware/errorMiddleware';
 import apiRoutes from './routes/apiRoutes';
 import { extendedRequestMiddleware } from './middleware/extendedRequestMiddleware';
-import { sessionCheck, sessionCler, sessionConfig } from './helper/sessionHelper';
+import { sessionCler, sessionConfig } from './helper/sessionHelper';
 
 const { availableLocals, defaultLanguage, projectRoot, port } = config;
 
@@ -28,10 +28,7 @@ i18n.configure({
 import './model';
 // Middleware
 app.use(i18n.init);
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(serveFavicon('./source/nodejs.svg'));
-app.use(morgan('combined'));
+// app.use(cookieParser());
 app.use(
 	session({
 		name: sessionConfig.key,
@@ -41,7 +38,10 @@ app.use(
 		cookie: sessionConfig.cookies,
 	}),
 );
-app.use(cookieParser());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(serveFavicon('./source/nodejs.svg'));
+app.use(morgan('combined'));
 app.use(compression());
 app.use(helmet());
 app.use(cors());
