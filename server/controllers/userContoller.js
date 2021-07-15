@@ -44,21 +44,6 @@ export const getRemovedPost = async (req, res, next) => {
 	}
 };
 
-// get users deleted post
-// export const getUserDeletedPost = async (req, res, next) => {
-// 	try {
-// 		const { userId, _id } = req.session.user;
-// 		// const user = await User.findOne({ userId: userId });
-// 		const userPost = await Post.find({ postedBy: _id, isDeleted: true })
-// 			.populate('postedBy', 'name _id userId picture')
-// 			.exec();
-// 		return res.ok({ message: 'SUCCESS', value: userPost });
-// 	} catch (e) {
-// 		console.error('GetUserProfile -> ', e.message);
-// 		next(e);
-// 	}
-// };
-
 export const otheUserProfile = async (req, res, next) => {
 	try {
 		const { userId, _id } = req.profile;

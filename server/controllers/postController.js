@@ -44,7 +44,7 @@ export const editPost = async (req, res, next) => {
 		if (_id == req.post.postedBy._id) {
 			const updatePost = await Post.findOne({ postId: req.post.postId });
 			updatePost.postText = postText;
-			updatePost.tags = [...updatePost.tags, ...tags];
+			updatePost.tags = [...tags];
 			await updatePost.save();
 		}
 		const post = await Post.findById(req.post._id).populate('postedBy', 'name _id userId picture').exec();
@@ -72,7 +72,7 @@ export const createPost = async (req, res, next) => {
 export const listByUser = async (req, res, next) => {
 	try {
 		const { limit, page } = req.query;
-		const { userId } = req.session.user;
+		const { userId, _id } = req.session.user;
 		const user = await User.findOne({ userId: userId });
 		const { location, distance } = user;
 		const options = {
@@ -83,6 +83,17 @@ export const listByUser = async (req, res, next) => {
 			page: parseFloat(page),
 		};
 		const getPosts = await User.getPostOfUsers(options);
+
+		getPosts.forEach((item) => {
+			let check;
+			item.likes.forEach((ele) => {
+				if (ele == _id) {
+					return (check = true);
+				}
+				return (check = false);
+			});
+			item.hasLiked = check;
+		});
 
 		return res.ok({ message: 'SUCCESS', value: getPosts });
 	} catch (e) {
@@ -139,6 +150,7 @@ export const likePost = async (req, res, next) => {
 				return res.ok('ALREADY_LIKED_BY_USER');
 			}
 		});
+
 		const addlike = await Post.findOneAndUpdate({ postId: `${postId}` }, { $push: { likes: _id } }, { new: true });
 		return res.ok({ message: 'SUCCESS', value: addlike });
 	} catch (e) {
