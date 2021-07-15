@@ -15,8 +15,8 @@ export const sessionConfig = {
 };
 
 export const sessionCler = (req, res, next) => {
-	if (req.cookies.PadosiToken && !req.session.user) {
-		res.clearCookie('PadosiToken');
+	if (req.cookies && !req.session.user) {
+		res.clearCookie();
 	}
 	next();
 };
