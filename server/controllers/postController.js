@@ -193,8 +193,8 @@ export const removePost = async (req, res, next) => {
 	try {
 		const post = req.post;
 		const { _id } = req.session.user;
-		if (_id === post.postedby._id) {
-			await Post.findOneAndRemove({ postedBy: post.postedby._id });
+		if (post.postedBy._id == _id) {
+			await Post.findOneAndUpdate({ postId: post.postId }, { isDeleted: true }, { new: true }).exec();
 		}
 		return res.ok({ message: 'REMOVE_POST' });
 	} catch (e) {
