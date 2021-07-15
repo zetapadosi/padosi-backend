@@ -37,6 +37,24 @@ export const getSinglePost = async (req, res, next) => {
 	}
 };
 
+export const editPost = async (req, res, next) => {
+	try {
+		const { _id } = req.session.user;
+		const { tags, postText } = req.body;
+		if (_id == req.post.postedBy._id) {
+			const updatePost = await Post.findOne({ postId: req.post.postId });
+			updatePost.postText = postText;
+			updatePost.tags = [...updatePost.tags, ...tags];
+			await updatePost.save();
+		}
+		const post = await Post.findById(req.post._id).populate('postedBy', 'name _id userId picture').exec();
+		return res.ok({ message: 'SUCCESS', value: post });
+	} catch (e) {
+		console.error(e.message);
+		next(e);
+	}
+};
+
 export const createPost = async (req, res, next) => {
 	try {
 		const { _id } = req.session.user;

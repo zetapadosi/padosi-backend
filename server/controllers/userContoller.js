@@ -29,6 +29,21 @@ export const getUserProfile = async (req, res, next) => {
 	}
 };
 
+// get users removed post
+export const getRemovedPost = async (req, res, next) => {
+	try {
+		const { userId, _id } = req.session.user;
+		const user = await User.findOne({ userId: userId });
+		const userPost = await Post.find({ postedBy: _id, isDeleted: true })
+			.populate('postedBy', 'name _id userId picture')
+			.exec();
+		return res.ok({ message: 'SUCCESS', value: { user, userPost } });
+	} catch (e) {
+		console.error(e.message);
+		next(e);
+	}
+};
+
 // get users deleted post
 // export const getUserDeletedPost = async (req, res, next) => {
 // 	try {
