@@ -1,5 +1,6 @@
 import Post from '../model/postModel';
 import User from '../model/userModel';
+import _ from 'lodash';
 
 export const testPost = (req, res, next) => {
 	try {
@@ -147,8 +148,8 @@ export const searchByTags = async (req, res, next) => {
 			return arr3;
 		};
 		const postTags = newTags(getPosts, tags);
-
-		return res.ok({ message: 'SUCCESS', value: postTags });
+		const uniquePost = _.uniq(postTags, postTags._id);
+		return res.ok({ message: 'SUCCESS', value: uniquePost });
 	} catch (e) {
 		console.error(e.message);
 		next(e);
