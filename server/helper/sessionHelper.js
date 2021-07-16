@@ -11,7 +11,7 @@ export const sessionConfig = {
 	secret: sessionSecret,
 	resave: false,
 	saveUninitialized: true,
-	cookies: { maxAge: oneDay, sameSite: true, httpOnly: true },
+	cookies: { maxAge: oneDay, sameSite: 'none', httpOnly: true },
 };
 
 export const sessionCler = (req, res, next) => {

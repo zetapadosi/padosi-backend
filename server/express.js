@@ -27,18 +27,20 @@ i18n.configure({
 
 import './model';
 // Middleware
-
-app.set('trust proxy', 1);
+if (app.get('env') === 'production') {
+	app.set('trust proxy', 1); // trust first proxy
+	sessionConfig.cookies.secure = true; // serve secure cookies
+}
 app.use(i18n.init);
 app.use(cookieParser());
 app.use(
 	session({
-		// name: 'Padosi_Session',
+		name: 'Padosi_Session',
 		key: sessionConfig.key,
 		secret: sessionConfig.secret,
 		resave: sessionConfig.resave,
 		saveUninitialized: sessionConfig.saveUninitialized,
-		// cookie: sessionConfig.cookies,
+		cookie: sessionConfig.cookies,
 	}),
 );
 app.use(express.json());
@@ -69,7 +71,7 @@ app.get('/ping', async (req, res, next) => {
 			userId: 'padosiUser-1626329921586e453c1b8bbf3',
 			_id: '60efd341fe8daf001585034d',
 		};
-		res.cookie('Padosi_Session', req.session.id, { expires: new Date(Date.now() + 90000000) });
+		// res.cookie('Padosi_Session', req.session.id, { expires: new Date(Date.now() + 90000000) });
 		return res.status(200).json({
 			msg: 'Success',
 			status: 200,
