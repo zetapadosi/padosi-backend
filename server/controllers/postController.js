@@ -154,14 +154,14 @@ export const likePost = async (req, res, next) => {
 	try {
 		const { postId } = req.body;
 		const { _id } = req.session.user;
-		const isPostLiked = await Post.findOne({ postId: postId }).exec();
-		isPostLiked.likes.forEach((item) => {
-			if (item == _id) {
-				return res.error({ message: 'ALREADY_LIKED_BY_USER' });
-			}
-		});
-		const addlike = await Post.findOneAndUpdate({ postId: `${postId}` }, { $push: { likes: _id } }, { new: true });
-		return res.ok({ message: 'SUCCESS', value: addlike });
+		const addPost = await Post.findOne({ postId: postId }).exec();
+		if (addPost.likes.indexOf(_id) == -1) {
+			addPost.likes.push(_id);
+			await addPost.save();
+			return res.ok({ message: 'SUCCESS', value: addPost });
+		} else {
+			return res.error('ALREADY_LIKED_BY_USER');
+		}
 	} catch (e) {
 		console.error(e.message);
 		next(e);
@@ -172,14 +172,15 @@ export const unlikePost = async (req, res, next) => {
 	try {
 		const { postId } = req.body;
 		const { _id } = req.session.user;
-		const isPostLiked = await Post.findOne({ postId: postId }).exec();
-		isPostLiked.likes.forEach((item) => {
-			if (item != _id) {
-				return res.error('ALREADY_UNLIKED_BY_USER');
-			}
-		});
-		const unlike = await Post.findOneAndUpdate({ postId: `${postId}` }, { $pull: { likes: _id } }, { new: true });
-		return res.ok({ message: 'SUCCESS', value: unlike });
+		const unLike = await Post.findOne({ postId: postId }).exec();
+
+		if (unLike.likes.indexOf(_id) != -1) {
+			unLike.likes.splice(unLike.likes.indexOf(_id), 1);
+			await unLike.save();
+			return res.ok({ message: 'SUCCESS', value: unLike });
+		} else {
+			return res.error('ALREADY_UNLIKED_BY_USER');
+		}
 	} catch (e) {
 		console.error(e.message);
 		next(e);
