@@ -13,7 +13,7 @@ import config from '../config/config';
 import { errHandler, headerFunction, notFound, unauthorisedErrors } from './middleware/errorMiddleware';
 import apiRoutes from './routes/apiRoutes';
 import { extendedRequestMiddleware } from './middleware/extendedRequestMiddleware';
-import { sessionCler, sessionConfig } from './helper/sessionHelper';
+import { sessionClear, sessionConfig } from './helper/sessionHelper';
 
 const { availableLocals, defaultLanguage, projectRoot, port } = config;
 
@@ -58,27 +58,27 @@ app.use(
 );
 
 // check the cookie and remove if is not set
-app.use(sessionCler);
+app.use(sessionClear);
 app.use(extendedRequestMiddleware);
 
 // app.all('*', headerFunction);
 // Test Route
 app.get('/ping', async (req, res, next) => {
 	try {
-		req.session.user = {
-			name: 'James Smith',
-			userFrom: 'google',
-			userId: 'padosiUser-1626329921586e453c1b8bbf3',
-			_id: '60efd341fe8daf001585034d',
-		};
+		// req.session.user = {
+		// 	name: 'James Smith',
+		// 	userFrom: 'google',
+		// 	userId: 'padosiUser-1626329921586e453c1b8bbf3',
+		// 	_id: '60efd341fe8daf001585034d',
+		// };
 		// res.cookie('Padosi_Session', req.session.id, { expires: new Date(Date.now() + 90000000) });
 		return res.status(200).json({
 			msg: 'Success',
 			status: 200,
 			data: 'Pong',
-			session: req.session,
-			cookies: req.cookies,
-			sessionId: req.session.id,
+			// session: req.session,
+			// cookies: req.cookies,
+			// sessionId: req.session.id,
 		});
 	} catch (e) {
 		console.error(e.message);
