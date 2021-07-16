@@ -51,7 +51,7 @@ app.use(compression());
 app.use(helmet());
 app.use(
 	cors({
-		origin: 'http://localhost:3000',
+		origin: ['http://localhost:3000', 'https://padosi-frontend.vercel.app'],
 		credentials: true,
 		optionsSuccessStatus: 200,
 	}),
@@ -61,7 +61,7 @@ app.use(
 app.use(sessionClear);
 app.use(extendedRequestMiddleware);
 
-// app.all('*', headerFunction);
+app.all('*', headerFunction);
 // Test Route
 app.get('/ping', async (req, res, next) => {
 	try {

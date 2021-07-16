@@ -23,8 +23,6 @@ export const sessionClear = (req, res, next) => {
 
 export const sessionCheck = (req, res, next) => {
 	const { cookies, session } = req;
-	// console.log(cookies);
-	// console.log(cookies.Padosi_Session.includes(session.id));
 	if (cookies.Padosi_Session.includes(session.id) && session.user) {
 		next();
 	} else return res.status(403).error('USER_IS_NOT_AUTHORIZED');

@@ -22,6 +22,15 @@ export const getUserProfile = async (req, res, next) => {
 		const userPost = await Post.find({ postedBy: _id, isDeleted: false })
 			.populate('postedBy', 'name _id userId picture')
 			.exec();
+		userPost.forEach((ele) => {
+			let check;
+			ele.selfPosted = true;
+			ele.likes.forEach((item) => {
+				if (item == _id) check = true;
+				check = false;
+			});
+			ele.hasLiked = check;
+		});
 		return res.ok({ message: 'SUCCESS', value: { user, userPost } });
 	} catch (e) {
 		console.error('GetUserProfile -> ', e.message);
@@ -51,6 +60,15 @@ export const otheUserProfile = async (req, res, next) => {
 		const userPost = await Post.find({ postedBy: _id, isDeleted: false })
 			.populate('postedBy', 'name _id userId picture')
 			.exec();
+		userPost.forEach((ele) => {
+			let check;
+			ele.selfPosted = false;
+			ele.likes.forEach((item) => {
+				if (item == _id) check = true;
+				check = false;
+			});
+			ele.hasLiked = check;
+		});
 		return res.ok({ message: 'SUCCESS', value: { user, userPost } });
 	} catch (e) {
 		console.error('GetUserProfile -> ', e.message);

@@ -1,6 +1,5 @@
 import Post from '../model/postModel';
 import User from '../model/userModel';
-import config from '../../config/config';
 
 export const testPost = (req, res, next) => {
 	try {
@@ -30,6 +29,7 @@ export const postByID = async (req, res, next, postId) => {
 export const getSinglePost = async (req, res, next) => {
 	try {
 		const post = await Post.findById(req.post._id).populate('postedBy', 'name _id userId picture').exec();
+
 		return res.ok({ message: 'SUCCESS', value: post });
 	} catch (e) {
 		console.error(e.message);
@@ -105,7 +105,7 @@ export const listByUser = async (req, res, next) => {
 export const searchByTags = async (req, res, next) => {
 	try {
 		const { limit, page } = req.query;
-		const { userId } = req.session.user;
+		const { userId, _id } = req.session.user;
 		const user = await User.findOne({ userId: userId });
 		const { location, distance } = user;
 		const { tags } = req.body;
@@ -118,6 +118,16 @@ export const searchByTags = async (req, res, next) => {
 		};
 
 		const getPosts = await User.getPostOfUsers(options);
+		getPosts.forEach((item) => {
+			let check;
+			item.likes.forEach((ele) => {
+				if (ele == _id) {
+					return (check = true);
+				}
+				return (check = false);
+			});
+			item.hasLiked = check;
+		});
 		const newTags = (arr1, arr2) => {
 			let arr3 = [];
 			arr1.forEach((ele1) => {
@@ -147,10 +157,9 @@ export const likePost = async (req, res, next) => {
 		const isPostLiked = await Post.findOne({ postId: postId }).exec();
 		isPostLiked.likes.forEach((item) => {
 			if (item == _id) {
-				return res.ok('ALREADY_LIKED_BY_USER');
+				return res.error({ message: 'ALREADY_LIKED_BY_USER' });
 			}
 		});
-
 		const addlike = await Post.findOneAndUpdate({ postId: `${postId}` }, { $push: { likes: _id } }, { new: true });
 		return res.ok({ message: 'SUCCESS', value: addlike });
 	} catch (e) {
@@ -166,7 +175,7 @@ export const unlikePost = async (req, res, next) => {
 		const isPostLiked = await Post.findOne({ postId: postId }).exec();
 		isPostLiked.likes.forEach((item) => {
 			if (item != _id) {
-				return res.ok('ALREADY_UNLIKED_BY_USER');
+				return res.error('ALREADY_UNLIKED_BY_USER');
 			}
 		});
 		const unlike = await Post.findOneAndUpdate({ postId: `${postId}` }, { $pull: { likes: _id } }, { new: true });
