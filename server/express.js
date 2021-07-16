@@ -59,7 +59,7 @@ app.use(
 app.use(sessionCler);
 app.use(extendedRequestMiddleware);
 
-app.all('*', headerFunction);
+// app.all('*', headerFunction);
 // Test Route
 app.get('/ping', async (req, res, next) => {
 	try {
