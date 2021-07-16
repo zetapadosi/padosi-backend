@@ -47,7 +47,12 @@ app.use(serveFavicon('./source/nodejs.svg'));
 app.use(morgan('combined'));
 app.use(compression());
 app.use(helmet());
-app.use(cors());
+app.use(
+	cors({
+		origin: ['http://localhost:3000'],
+		optionsSuccessStatus: 200,
+	}),
+);
 
 // check the cookie and remove if is not set
 app.use(sessionCler);
