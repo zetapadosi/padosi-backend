@@ -43,7 +43,7 @@ export const registerUser = async (req, res, next) => {
 			userId: user.userId,
 			_id: user._id,
 		};
-		res.cookie('Padosi_Session', req.session.id, { expires: new Date(Date.now() + 90000) });
+		res.cookie('Padosi_Session', req.session.id, { expires: new Date(Date.now() + 90000000) });
 		return res.status(201).ok({ message: 'REGISTRATION_SUCCESS', value: user });
 	} catch (e) {
 		console.error(e.message);
@@ -64,7 +64,7 @@ export const sigin = async (req, res, next) => {
 			userId: user.userId,
 			_id: user._id,
 		};
-		res.cookie('Padosi_Session', req.session.id, { expires: new Date(Date.now() + 90000) });
+		res.cookie('Padosi_Session', req.session.id, { expires: new Date(Date.now() + 90000000) });
 		return res.ok({ message: 'SIGNED_SUCCESS', value: user });
 	} catch (e) {
 		console.error(e.message);
