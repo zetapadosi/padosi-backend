@@ -28,9 +28,14 @@ export const postByID = async (req, res, next, postId) => {
 
 export const getSinglePost = async (req, res, next) => {
 	try {
-		const post = await Post.findById(req.post._id).populate('postedBy', 'name _id userId picture').exec();
-
-		return res.ok({ message: 'SUCCESS', value: post });
+		const { _id } = req.session.user;
+		const newPost = await Post.findById(req.post._id)
+			.populate('postedBy', 'name _id userId picture')
+			.populate('comments.postedBy', 'name _id userId picture')
+			.exec();
+		const hasLiked = newPost.likes.includes(_id);
+		newPost.comments.sort((a, b) => new Date(b.created) - new Date(a.created));
+		return res.ok({ message: 'SUCCESS', value: { ...newPost._doc, hasLiked } });
 	} catch (e) {
 		console.error(e.message);
 		next(e);

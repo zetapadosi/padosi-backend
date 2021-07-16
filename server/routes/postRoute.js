@@ -26,6 +26,7 @@ postRouter.get('/', sessionCheck, testPost);
 
 postRouter.post('/create/', sessionCheck, inputPostRules(), validate, createPost);
 // Get individual post
+
 postRouter.get('/view/:postId', sessionCheck, getSinglePost);
 postRouter.put('/edit/:postId', sessionCheck, editPost);
 
