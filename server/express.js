@@ -60,8 +60,8 @@ app.get('/ping', async (req, res, next) => {
 		req.session.user = {
 			name: 'James Smith',
 			userFrom: 'google',
-			userId: 'padosiUser-1626328111637944e189e4b6a',
-			_id: '60efcc2f1adf3e1b54150bbc',
+			userId: 'padosiUser-1626329921586e453c1b8bbf3',
+			_id: '60efd341fe8daf001585034d',
 		};
 		res.cookie('Padosi_Session', req.session.id, { expires: new Date(Date.now() + 90000000) });
 		return res.status(200).json({
