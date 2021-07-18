@@ -89,9 +89,6 @@ class User {
 				{
 					$project: {
 						postId: '$posts.postId',
-						selfPosted: {
-							$cond: { if: { $eq: ['$posts.postedBy.userId'.toString(), options.id.toString()] }, then: true, else: false },
-						},
 						tags: '$posts.tags',
 						postText: '$posts.postText',
 						likes: '$posts.likes',
