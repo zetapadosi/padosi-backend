@@ -34,7 +34,7 @@ if (app.get('env') === 'production') {
 const whiteList = ['http://localhost:3000', 'https://padosi-frontend.vercel.app'];
 const corsOptions = {
 	origin: function (origin, callBack) {
-		if (whitelist.indexOf(origin) !== -1) {
+		if (whiteList.indexOf(origin) !== -1) {
 			callBack(null, true);
 		} else {
 			callBack(new Error('Not allowed by CORS'));
