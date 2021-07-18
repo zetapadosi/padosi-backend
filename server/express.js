@@ -31,7 +31,11 @@ if (app.get('env') === 'production') {
 	app.set('trust proxy', 1); // trust first proxy
 	sessionConfig.cookies.secure = true; // serve secure cookies
 }
-const whiteList = ['http://localhost:3000', 'https://padosi-frontend.vercel.app'];
+const whiteList = [
+	'http://localhost:3000',
+	'https://padosi-frontend.vercel.app',
+	'https://padosi-backend.herokuapp.com/',
+];
 const corsOptions = {
 	origin: function (origin, callBack) {
 		if (whiteList.indexOf(origin) !== -1) {
