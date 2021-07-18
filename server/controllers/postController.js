@@ -87,6 +87,7 @@ export const listByUser = async (req, res, next) => {
 			distance: parseFloat(distance),
 			limit: parseFloat(limit),
 			page: parseFloat(page),
+			id: userId,
 		};
 		const getPosts = await User.getPostOfUsers(options);
 

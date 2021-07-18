@@ -31,6 +31,18 @@ if (app.get('env') === 'production') {
 	app.set('trust proxy', 1); // trust first proxy
 	sessionConfig.cookies.secure = true; // serve secure cookies
 }
+const whiteList = ['http://localhost:3000', 'https://padosi-frontend.vercel.app'];
+const corsOptions = {
+	origin: function (origin, callBack) {
+		if (whitelist.indexOf(origin) !== -1) {
+			callBack(null, true);
+		} else {
+			callBack(new Error('Not allowed by CORS'));
+		}
+	},
+	credentials: true,
+	optionsSuccessStatus: 200,
+};
 app.use(i18n.init);
 app.use(cookieParser());
 app.use(
@@ -49,13 +61,7 @@ app.use(serveFavicon('./source/nodejs.svg'));
 app.use(morgan('combined'));
 app.use(compression());
 app.use(helmet());
-app.use(
-	cors({
-		origin: ['http://localhost:3000', 'https://padosi-frontend.vercel.app'],
-		credentials: true,
-		optionsSuccessStatus: 200,
-	}),
-);
+app.use(cors(corsOptions));
 
 // check the cookie and remove if is not set
 app.use(sessionClear);
