@@ -34,7 +34,7 @@ export const getSinglePost = async (req, res, next) => {
 			.populate('postedBy', 'name _id userId picture')
 			.populate('comments.postedBy', 'name _id userId picture')
 			.exec();
-		const hasLiked = newPost.likes.includes(_id);
+		const hasLiked = newPost && !_.isEmpty(newPost.likes) && newPost.likes.includes(_id);
 		newPost.comments.sort((a, b) => new Date(b.created) - new Date(a.created));
 		return res.ok({ message: 'SUCCESS', value: { ...newPost._doc, hasLiked } });
 	} catch (e) {

@@ -1,5 +1,6 @@
 import { generateRandomSring } from './encriptionHelper';
 import config from '../../config/config';
+import _ from 'lodash';
 
 const { sessionSecret } = config;
 
@@ -23,7 +24,15 @@ export const sessionClear = (req, res, next) => {
 
 export const sessionCheck = (req, res, next) => {
 	const { cookies, session } = req;
-	if (cookies.Padosi_Session.includes(session.id) && session.user) {
+
+	const check =
+		!_.isEmpty(cookies) &&
+		cookies.Padosi_Session &&
+		_.isString(cookies.Padosi_Session) &&
+		cookies.Padosi_Session.includes(session.id) &&
+		session.user;
+
+	if (check) {
 		next();
 	} else return res.status(403).error('USER_IS_NOT_AUTHORIZED');
 };
